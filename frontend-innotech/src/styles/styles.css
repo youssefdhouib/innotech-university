@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+
+/* Université InnoTech Global Palette */
+
+:root {
+  --InnoTech-primary: #09A79D;
+  /* Turquoise */
+  --InnoTech-secondary: #00C4B3;
+  /* Mint Green */
+  --InnoTech-accent: #004B87;
+  /* Deep Blue */
+  --InnoTech-text: #002B49;
+  /* Dark Navy */
+  --InnoTech-white: #FFFFFF;
+  /* White */
+  --InnoTech-bg: #FFFFFF;
+  /* Background */
+}
+
+
+/* Reusable utility classes for consistent design */
+.btn-primary {
+  @apply px-4 py-2 rounded font-semibold flex items-center justify-center;
+  background-color: var(--InnoTech-primary);
+  color: var(--InnoTech-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--InnoTech-secondary);
+}
+
+.section-title {
+  @apply text-xl font-semibold mb-2;
+  color: var(--InnoTech-accent);
+}
+
+.text-InnoTech {
+  color: var(--InnoTech-text);
+}
+
+.bg-InnoTech {
+  background-color: var(--InnoTech-bg);
+}
+
+.card {
+  @apply rounded-md shadow p-6 md:p-10;
+  background-color: var(--InnoTech-white);
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-out;
+}
+
+.upload-card {
+  @apply bg-[var(--InnoTech-white)] border border-[var(--InnoTech-accent)] rounded-lg shadow-sm p-4 transition-shadow duration-200 hover:shadow-md;
+}
+
+.upload-label {
+  @apply block text-sm font-semibold text-[var(--InnoTech-accent)] mb-2;
+}
+
+.upload-input {
+  @apply w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2 bg-[var(--InnoTech-white)] text-[var(--InnoTech-text)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-[var(--InnoTech-primary)] transition;
+}
+/* ADD THIS TO YOUR EXISTING styles.css */
+
+/* Secondary button style for degrees page */
+.btn-secondary {
+  @apply px-4 py-2 rounded font-medium transition-colors;
+  background-color: var(--InnoTech-white);
+  color: var(--InnoTech-accent);
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: var(--InnoTech-accent);
+  color: var(--InnoTech-white);
+}
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+}
+
+.rtl .flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Degree card specific styles */
+.degree-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Container max width */
+.container {
+  max-width: 1200px;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

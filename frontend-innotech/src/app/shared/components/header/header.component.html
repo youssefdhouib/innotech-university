@@ -1,0 +1,200 @@
+<header class="header-container">
+  <!-- Main Header -->
+  <div class="header-content">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-container" routerLink="/home">
+        <img
+            src="/assets/logo.png"
+            alt="InnoTech University"
+          class="logo-image"
+        />
+        <div class="logo-text">
+          <span class="university-name">{{ 'APP.TITLE' | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+<!-- Desktop Navigation -->
+<nav class="desktop-nav">
+  <div class="nav-links">
+    <!-- Static Nav Items -->
+    <a
+      *ngFor="let item of navigationItems"
+      [routerLink]="item.route"
+      routerLinkActive="nav-link-active"
+      class="nav-link">
+      <span>{{ item.label | translate }}</span>
+    </a>
+
+    <!-- InnoTech Dropdown -->
+    <div class="nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle">
+        <span>{{ 'APP.TITLE' | translate }}</span>
+        <i class="pi pi-chevron-down dropdown-arrow"></i>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a [routerLink]="'/professors'" class="dropdown-item">
+          <i class="pi pi-users"></i> {{ 'NAV.TEACHERS' | translate }}
+        </a>
+        <a [routerLink]="'/departments'" class="dropdown-item">
+          <i class="pi pi-building"></i> {{ 'NAV.DEPARTMENTS' | translate }}
+        </a>
+        <a [routerLink]="'/news'" class="dropdown-item">
+          <i class="pi pi-megaphone"></i> {{ 'NAV.NEWS' | translate }}
+        </a>
+        <a [routerLink]="'/about'" class="dropdown-item">
+          <i class="pi pi-info-circle"></i> {{ 'NAV.ABOUT' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+    <!-- Right Section -->
+    <div class="header-actions">
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <p-dropdown
+          [options]="languages"
+          [(ngModel)]="currentLanguage"
+          (onChange)="changeLang($event)"
+          optionLabel="label"
+          optionValue="value"
+          [showClear]="false"
+          placeholder="Language"
+          class="language-dropdown">
+          <ng-template pTemplate="selectedItem">
+            <div class="selected-language" *ngIf="selectedLanguage">
+              <span class="language-flag">{{ selectedLanguage.icon }}</span>
+    <!--           <span class="language-label">{{ selectedLanguage.label }}</span> -->
+            </div>
+          </ng-template>
+          <ng-template let-language pTemplate="item">
+            <div class="language-option">
+              <!-- <span class="language-flag">{{ language.icon }}</span> -->
+              <span class="language-label">{{ language.label }}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <!-- CTA Button -->
+      <button class="cta-button" (click)="navigateToExtranet()">
+        <i class="pi pi-globe"></i>
+        <span>{{ 'NAV.EXTRANET' | translate }}</span>
+      </button>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="mobile-menu-toggle"
+        (click)="toggleMobileMenu()"
+        [class.active]="isMobileMenuOpen">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" [class.open]="isMobileMenuOpen">
+    <div class="mobile-nav-overlay" (click)="closeMobileMenu()"></div>
+    <div class="mobile-nav-content">
+      <!-- Mobile Header -->
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <img
+            src="/assets/logo.png"
+            alt="InnoTech University"
+            class="mobile-logo-image"
+          />
+          <span class="mobile-university-name">{{ 'APP.TITLE' | translate }}</span>
+        </div>
+        <button class="mobile-close-btn" (click)="closeMobileMenu()">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+
+<!-- Mobile Navigation Links -->
+<div class="mobile-nav-links">
+  <!-- Loop for general items (exclude InnoTech-related) -->
+  <a
+    *ngFor="let item of navigationItems"
+    [routerLink]="item.route"
+    routerLinkActive="mobile-nav-link-active"
+    class="mobile-nav-link"
+    (click)="closeMobileMenu()">
+    <i [class]="item.icon" class="mobile-nav-icon"></i>
+    <span>{{ item.label | translate }}</span>
+    <i class="pi pi-chevron-right mobile-nav-arrow"></i>
+  </a>
+
+  <!-- Dropdown Group: InnoTech University -->
+  <div class="mobile-nav-dropdown">
+    <button
+      class="mobile-nav-link dropdown-toggle"
+      (click)="isMobileDropdownOpen = !isMobileDropdownOpen">
+      <i class="pi pi-graduation-cap mobile-nav-icon"></i>
+      <span>{{ 'APP.TITLE' | translate }}</span>
+      <i class="pi pi-chevron-down mobile-nav-arrow"
+         [class.rotate]="isMobileDropdownOpen"></i>
+    </button>
+
+    <div class="mobile-dropdown-menu" *ngIf="isMobileDropdownOpen">
+      <a
+        [routerLink]="'/professors'"
+        class="mobile-nav-link sub-link"
+        (click)="closeMobileMenu()">
+        <i class="pi pi-users mobile-nav-icon"></i>
+        {{ 'NAV.TEACHERS' | translate }}
+      </a>
+      <a
+        [routerLink]="'/departments'"
+        class="mobile-nav-link sub-link"
+        (click)="closeMobileMenu()">
+        <i class="pi pi-building mobile-nav-icon"></i>
+        {{ 'NAV.DEPARTMENTS' | translate }}
+      </a>
+      <a
+        [routerLink]="'/news'"
+        class="mobile-nav-link sub-link"
+        (click)="closeMobileMenu()">
+        <i class="pi pi-megaphone mobile-nav-icon"></i>
+        {{ 'NAV.NEWS' | translate }}
+      </a>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Mobile Actions -->
+      <div class="mobile-nav-actions">
+        <button
+          class="mobile-cta-button"
+          (click)="navigateToExtranet()">
+          <i class="pi pi-user-plus"></i>
+          <span>{{ 'NAV.PREREGISTER' | translate }}</span>
+        </button>
+
+        <!-- Mobile Language Selector -->
+        <div class="mobile-language-selector">
+          <label class="mobile-language-label">{{ 'NAV.LANGUAGE' | translate }}</label>
+          <div class="mobile-language-options">
+            <button
+              *ngFor="let lang of languages"
+              class="mobile-language-option"
+              [class.active]="currentLanguage === lang.value"
+              (click)="changeLang({value: lang.value})">
+              <!-- <span class="language-flag">{{ lang.icon }}</span> -->
+              <span class="language-label">{{ lang.label }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

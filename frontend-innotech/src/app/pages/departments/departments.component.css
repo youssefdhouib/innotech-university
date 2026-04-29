@@ -1,0 +1,264 @@
+/* Import Inter font for modern typography */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+.departments-page {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced backdrop blur support */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Custom shadow utilities */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Gradient text support */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced card hover effects */
+.group:hover .bg-white {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Image hover effects */
+.group:hover img {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Enhanced glow effects */
+.group:hover .absolute.inset-0.bg-gradient-to-br {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+}
+
+.rtl .flex {
+  flex-direction: row-reverse;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .justify-start {
+  justify-content: flex-end;
+}
+
+/* Focus styles for accessibility */
+.group:focus {
+  outline: 3px solid var(--InnoTech-primary);
+  outline-offset: 3px;
+  border-radius: 1.5rem;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 1024px) {
+  .grid.lg\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .text-5xl.lg\\:text-7xl {
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+
+  .h-64.lg\\:h-72 {
+    height: 16rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid.md\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .text-5xl.lg\\:text-7xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .px-4.sm\\:px-6.lg\\:px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .py-16.lg\\:py-24 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .h-64 {
+    height: 12rem;
+  }
+
+  .p-8 {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-xl {
+    font-size: 1.125rem;
+  }
+
+  .gap-8.lg\\:gap-12 {
+    gap: 1rem;
+  }
+
+  .w-14.h-14 {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .w-7.h-7 {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--InnoTech-primary), var(--InnoTech-secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--InnoTech-secondary), var(--InnoTech-accent));
+}
+
+/* Performance optimizations */
+.transform,
+.group {
+  will-change: transform;
+}
+
+/* Enhanced visual hierarchy */
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+  font-weight: 900;
+}
+
+/* Enhanced gradient backgrounds */
+.bg-gradient-to-r,
+.bg-gradient-to-br {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .bg-gradient-to-r,
+  .bg-gradient-to-br {
+    background-attachment: scroll;
+  }
+}
+
+/* Enhanced text readability */
+.text-transparent.bg-clip-text {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced card styling */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+/* Better spacing */
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+/* Enhanced shadow effects */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced hover effects for icons */
+.group:hover .w-10.h-10 {
+  transform: scale(1.1) ;
+}
+
+.group:hover .w-14.h-14 {
+  transform: scale(1.1) ;
+}
+
+/* Better button states */
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+
+/* Enhanced decorative elements */
+.absolute.w-20.h-20 {
+  transition: opacity 0.5s ease;
+}

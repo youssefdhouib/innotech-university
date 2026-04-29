@@ -1,0 +1,88 @@
+.degree-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin: 0;
+}
+
+.degree-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  position: relative;
+}
+
+/* Square aspect ratio to match Figma */
+.aspect-\[3\/4\] {
+  aspect-ratio: 4 / 5; /* More portrait oriented like Figma */
+}
+
+/* Consistent card sizing - more square */
+.degree-card > div {
+  height: 300px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .degree-card > div {
+    height: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .degree-card > div {
+    height: 340px;
+  }
+}
+
+/* Enhanced text shadow for better readability */
+.drop-shadow-lg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Better border visibility */
+.border-opacity-90 {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tighter border spacing */
+.inset-4 {
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+/* Figma blue overlay color */
+.figma-blue-overlay {
+  background-color: #004d98;
+  opacity: 0.8; /* 80% opacity as shown in Figma */
+}
+
+/* Remove any default spacing */
+* {
+  box-sizing: border-box;
+}
+
+/* Arrow container styling */
+.arrow-container {
+  transition: all 0.3s ease;
+}
+
+/* When hovering over the entire card (.group), change the arrow container */
+.group:hover .arrow-container {
+  background-color: rgba(255, 255, 255, 1); /* Full white background */
+  border-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.arrow-icon {
+  transition: all 0.3s ease;
+}
+
+/* When hovering over the entire card, change the arrow color */
+.group:hover .arrow-icon {
+  color: #004d98; /* Bright green color on hover */
+  transform: translateX(2px);
+}
+
+

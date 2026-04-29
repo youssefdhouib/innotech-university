@@ -1,0 +1,576 @@
+{
+  "APP": {
+    "TITLE": "InnoTech University",
+    "SUBTITLE": " Site Web InnoTech University",
+    "LOADING": "Loading...",
+    "LANGUAGE": "Language",
+    "NO_DATA": "No data available"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "DEGREES": "Degrees",
+    "TEACHERS": "Teachers",
+    "DEPARTMENTS": "Departments",
+    "ABOUT": "About",
+    "CONTACT": "Contact",
+    "NEWS": "News",
+    "PREREGISTER": "Preregister",
+    "LANGUAGE": "Language",
+    "NAVIGATION": "Navigation",
+    "REDIRECTING_TO_PREREGISTRATION": "Redirecting to preregistration page...",
+    "EXTRANET": "Extranet",
+    "EXTRANET_COMING_SOON": "Extranet coming soon!"
+  },
+  "FORM": {
+    "TITLE": "InnoTech University Pre-registration",
+    "DESCRIPTION": "Please fill out this form to start your pre-registration application at InnoTech University. A confirmation email will be sent to you after validation.",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "FIRST_NAME_AR": "First Name (Arabic)",
+    "LAST_NAME_AR": "Last Name (Arabic)",
+    "EMAIL": "Email",
+    "DESIRED_DEGREE": "Desired Degree",
+    "BIRTH_DATE": "Birth Date",
+    "COUNTRY": "Country",
+    "SELECT_COUNTRY": "Select Country",
+    "GENDER": "Gender",
+    "ADDRESS": "Address",
+    "PHONE": "Phone",
+    "PREVIOUS_DEGREE": "Previous Degree",
+    "GRADUATION_YEAR": "Graduation Year",
+    "HOW_DID_YOU_HEAR": "How did you hear about us?",
+    "CIN": "National ID",
+    "PASSPORT": "Passport",
+    "SUBMIT": "Submit",
+    "RESET": "Reset",
+    "SELECT": "Select",
+    "PERSONAL_INFO": "Personal Information",
+    "IDENTIFICATION_INFO": "Identification Information",
+    "ACADEMIC_INFO": "Academic Information",
+    "CONTACT_INFO": "Contact Information",
+    "CONFIRM_TITLE": "Confirmation of pre-registration - InnoTech University",
+    "RECAP": "Summary of your pre-registration",
+    "UPLOAD_TITLE": "Attach your required documents",
+    "UPLOAD_DESC": "Please attach copies of the required documents to finalize your pre-registration at InnoTech University."
+  },
+  "COUNTRIES": {
+    "TUNISIA": "Tunisia",
+    "ALGERIA": "Algeria",
+    "LIBYA": "Libya",
+    "MOROCCO": "Morocco",
+    "EGYPT": "Egypt"
+  },
+  "DOCS": {
+    "BAC_COPY": "Copy of the Baccalaureate Diploma",
+    "BIRTH_CERTIFICATE": "Birth Certificate",
+    "ID_PHOTO": "Identity Photo",
+    "ID_COPY": "Copy of the National ID or Passport",
+    "SIGNED_RULES": "Signed copy of the internal regulations",
+    "LICENSE_DIPLOMA": "Legalized copy of the License or equivalent diploma",
+    "TRANSCRIPTS": "Transcripts (copies)"
+  },
+  "GENDER": {
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "OTHER": "Other"
+  },
+  "TOAST": {
+    "SUCCESS": "Submission Successful",
+    "ERROR": "Submission Error",
+    "FILL_REQUIRED": "Please fill in all required fields.",
+    "LOADED": "Data loaded successfully",
+    "LOAD_ERROR": "Error loading data",
+    "INFO": "Info",
+    "WARN": "Warning"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIELDS": "Please fill in or check all required fields.",
+    "REQUIRED": "This field is required",
+    "INVALID_EMAIL": "Invalid email",
+    "MIN_CHAR": "This field must contain at least {{count}} characters.",
+    "CIN_PATTERN": "CIN must be exactly 8 digits",
+    "YEAR_INVALID_FORMAT": "Please enter a valid 4-digit year.",
+    "YEAR_OUT_OF_RANGE": "Please enter a reasonable graduation year."
+  },
+  "FOOTER": {
+    "DESCRIPTION": "InnoTech University is committed to providing world-class education and fostering innovation. Join our community of learners and leaders shaping the future.",
+    "FOLLOW_US": "Follow Us",
+    "QUICK_LINKS": "Quick Links",
+    "ACADEMICS": "Academics",
+    "STUDENT_SERVICES": "Student Services",
+    "CONTACT_INFO": "Contact Information",
+    "VIEW_MAP": "View on Map",
+    "BACK_TO_TOP": "Back to Top",
+    "COPYRIGHT": "All rights reserved.",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "TERMS_OF_USE": "Terms of Use",
+    "ACCESSIBILITY": "Accessibility",
+    "CONTACT_US": "Contact Us",
+    "LINKS": {
+      "HOME": "Home",
+      "ABOUT": "About Us",
+      "DEGREES": "Degrees",
+      "TEACHERS": "Faculty",
+      "CONTACT": "Contact",
+      "NEWS": "News",
+      "DEPARTMENTS": "Departments"
+    },
+    "STUDENTS_SERVICES": {
+      "TITLE": "Students Services",
+      "EXTRANET": "Extranet",
+      "SCHOLARSHIPS": "Scholarships",
+      "RESEARCH": "Research",
+      "LIBRARY": "Library",
+      "CALENDAR": "Academic Calendar",
+      "STUDENT_LIFE": "Student Life"
+    },
+    "SERVICES": {
+      "STUDENT_PORTAL": "Student Portal",
+      "CAREER_CENTER": "Career Center",
+      "COUNSELING": "Counseling Services",
+      "HOUSING": "Housing",
+      "DINING": "Dining Services"
+    }
+  },
+  "BUTTONS": {
+    "RETURN_HOME": "Return to home",
+    "SUBMIT": "Submit",
+    "RESET": "Reset",
+    "SELECT": "Select"
+  },
+ "CONTACT": {
+    "HERO_TITLE": "Get in Touch",
+    "HERO_SUBTITLE": "We're here to help you with any questions about our programs, admissions, or university life.",
+    "GET_IN_TOUCH": "Contact Information",
+    "ADDRESS_TITLE": "Visit Us",
+    "ADDRESS": "123 University Avenue, Tech City, TC 12345, France",
+    "PHONE_TITLE": "Call Us",
+    "PHONE": "+33 1 23 45 67 89",
+    "EMAIL_TITLE": "Email Us",
+    "EMAIL": "contact@InnoTech-university.fr",
+    "HOURS_TITLE": "Office Hours",
+    "HOURS_WEEKDAYS": "Monday - Friday: 8:00 AM - 6:00 PM",
+    "HOURS_WEEKEND": "Saturday: 9:00 AM - 2:00 PM",
+    "FIND_US": "Find Us",
+    "MAP_DESCRIPTION": "Located in a convenient spot right on the street, easily accessible for everyone.",
+    "MAP_PLACEHOLDER": "Interactive map coming soon",
+    "GET_DIRECTIONS": "Get Directions",
+    "SOCIAL_MEDIA": "Social Media",
+    "SOCIAL_DESCRIPTION": "Follow us for the latest updates and news.",
+    "FOLLOW_US": "Follow Us",
+    "LIVE_CHAT": "Live Chat",
+    "CHAT_DESCRIPTION": "Get instant answers to your questions.",
+    "START_CHAT": "Start Chat",
+    "FAQ": "FAQ",
+    "FAQ_DESCRIPTION": "Find answers to frequently asked questions.",
+    "VIEW_FAQ": "View FAQ",
+    "CONNECT_WITH_US": "Connect With Us",
+    "SOCIAL_SUBTITLE": "Follow us on social media and stay updated with the latest news, events, and opportunities at InnoTech University.",
+    "FACEBOOK_FOLLOWERS": "5.2K Followers",
+    "INSTAGRAM_FOLLOWERS": "3.8K Followers",
+    "LINKEDIN_FOLLOWERS": "2.1K Followers",
+    "YOUTUBE_SUBSCRIBERS": "1.5K Subscribers",
+    "NEWSLETTER_TITLE": "Stay Updated",
+    "NEWSLETTER_DESCRIPTION": "Subscribe to our newsletter and never miss important updates about programs, events, and opportunities.",
+    "NEWSLETTER_PLACEHOLDER": "Enter your email address",
+    "SUBSCRIBE": "Subscribe",
+    "RESPONSE_TIME_TITLE": "Quick Response",
+    "RESPONSE_TIME_DESC": "We typically respond to all inquiries within 24 hours during business days.",
+    "TIP_1_TITLE": "Be Specific",
+    "TIP_1_DESC": "Include specific details about your inquiry for faster assistance.",
+    "TIP_2_TITLE": "Check Your Email",
+    "TIP_2_DESC": "Make sure to check your spam folder for our response.",
+    "TIP_3_TITLE": "Include Key Details",
+    "TIP_3_DESC": "Mention specific dates, names, or departments if relevant to your inquiry.",
+    "TIP_4_TITLE": "Urgent Matters",
+    "TIP_4_DESC": "For urgent matters, please call us directly during office hours.",
+    "QUICK_LINKS_TITLE": "Quick Links",
+    "LINK_ADMISSIONS": "Admissions",
+    "LINK_PROGRAMS": "Programs",
+    "LINK_SCHOLARSHIPS": "Scholarships",
+    "LINK_CAMPUS": "Campus Life",
+    "EMERGENCY_TITLE": "Emergency Contact",
+    "EMERGENCY_DESC": "For urgent matters outside office hours, use our emergency line.",
+    "EMERGENCY_CALL": "Emergency Call"
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Send us a Message",
+    "SUBTITLE": "Fill out the form below and we'll get back to you as soon as possible.",
+    "NAME": "Full Name",
+    "NAME_PLACEHOLDER": "Enter your full name",
+    "EMAIL": "Email Address",
+    "EMAIL_PLACEHOLDER": "Enter your email address",
+    "SERVICE": "Department",
+    "MESSAGE": "Message",
+    "MESSAGE_PLACEHOLDER": "How can we help you?",
+    "SUCCESS": "Your message has been sent successfully!",
+    "SERVICES": {
+      "SCOLARITE": "Student Services",
+      "BIBLIOTHEQUE": "Library",
+      "ADMINISTRATION": "Administration"
+    }
+  },
+  "DEGREES": {
+    "HERO": {
+      "SUBTITLE": "Our Degrees",
+      "TITLE": "Discover Our Degrees",
+      "DESCRIPTION": "Explore our licences and masters designed to propel you into the future."
+    },
+    "TITLE": "Our Degrees",
+    "SEARCH_PLACEHOLDER": "Search degrees...",
+    "FILTERS": {
+      "ALL": "All",
+      "LICENCE": "Licence Degrees",
+      "MASTERS": "Masters Degrees"
+    },
+    "LICENCE_DEGREES": "Licence Degrees",
+    "MASTERS_DEGREES": "Masters Degrees",
+    "SEARCH_RESULTS": "Search Results",
+    "NO_RESULTS": "No degrees found matching your search",
+    "TRY_DIFFERENT_SEARCH": "Try using different keywords",
+    "DEGREE_SELECTED": "{{name}} selected",
+    "VISION": {
+      "TITLE": "InnoTech University Vision",
+      "TECH_EXCELLENCE": {
+        "TITLE": "Tech Excellence",
+        "DESCRIPTION": "Fostering innovation and technical mastery in computer science"
+      },
+      "DIGITAL_INNOVATION": {
+        "TITLE": "Digital Innovation",
+        "DESCRIPTION": "Leading breakthrough research in AI, ML, and emerging technologies"
+      },
+      "INDUSTRY_PARTNERSHIP": {
+        "TITLE": "Industry Partnership",
+        "DESCRIPTION": "Connecting students with leading tech companies and startups"
+      },
+      "GLOBAL_IMPACT": {
+        "TITLE": "Global Impact",
+        "DESCRIPTION": "Developing solutions that transform industries worldwide"
+      }
+    }
+  },
+  "DEGREE_DETAIL": {
+    "PAGE_TITLE": "Degree Details",
+    "BACK_TO_DEGREES": "Back to Degrees",
+    "DEGREE_NOT_FOUND": "Degree not found. Redirecting to degrees page...",
+    "NAVIGATION_ERROR": "Error navigating to degree details",
+    "IN": "in",
+    "LICENCE": "Licence",
+    "MASTERS": "Master",
+    "INTRO": "Intro",
+    "MODULES": "Modules",
+    "DOWNLOAD_PROGRAM": "Download the Program",
+    "PROGRAM_BENEFITS": "Program Benefits",
+    "DEFAULT_INTRO": "We strive to be a globally recognized center of excellence in education and research, fostering a dynamic learning environment that empowers individuals to thrive in a rapidly evolving world. Our vision is to cultivate critical thinking, innovation, and social responsibility in our students, equipping them to make meaningful contributions to society.",
+    "DOWNLOAD_DESCRIPTION": "You can download all the program in pdf from here :",
+    "DOWNLOAD_PDF": "DOWNLOAD PDF",
+    "NO_MODULES": "No modules available for this degree.",
+    "NO_FILES_AVAILABLE": "No files available for download.",
+    "INTRODUCTION": "Introduction",
+    "AVAILABLE_PROGRAMS": "Available Programs",
+    "NO_PROGRAMS_TITLE": "No Programs Available",
+    "NO_PROGRAMS_DESC": "This degree currently has no programs available. Please check back later or contact us for more information.",
+    "ERROR_TITLE": "Degree Not Found",
+    "ERROR_DESC": "The requested degree could not be found. Please check the URL or return to the degrees page.",
+    "DATA_LOADED": "Degree details loaded successfully",
+    "NO_FILE_AVAILABLE": "No file available for download",
+    "DOWNLOAD_STARTED": "Download started for {{name}}",
+    "DOWNLOAD_ERROR": "Error occurred while downloading file",
+    "ERROR_OCCURRED": "An error occurred while loading degree details",
+    "BENEFITS": {
+      "ACADEMIC_EXCELLENCE": "Academic Excellence",
+      "INNOVATION": "Innovation & Creativity",
+      "EMPLOYABILITY": "High Employability",
+      "TECHNICAL_EXCELLENCE": "Technical Excellence",
+      "DATA_INSIGHTS": "Data-Driven Insights",
+      "ANALYTICS": "Advanced Analytics",
+      "MARKET_RELEVANCE": "Market Relevance",
+      "BIG_DATA_TECHNOLOGIES": "Big Data Technologies",
+      "IOT_SKILLS": "IoT Skills",
+      "EMBEDDED_SYSTEMS": "Embedded Systems",
+      "CONNECTIVITY": "Connectivity",
+      "HARDWARE_INTEGRATION": "Hardware Integration",
+      "ROBOTICS": "Robotics",
+      "AUTOMATION": "Automation",
+      "EMBEDDED_ELECTRONICS": "Embedded Electronics",
+      "SMART_SYSTEMS": "Smart Systems",
+      "MANAGEMENT_SKILLS": "Management Skills",
+      "LEADERSHIP": "Leadership",
+      "FINANCIAL_CONTROL": "Financial Control",
+      "MARKET_STRATEGY": "Market Strategy",
+      "DATA_ANALYSIS": "Data Analysis",
+      "INDUSTRIAL_PROCESS": "Industrial Processes",
+      "MACHINE_LEARNING": "Machine Learning",
+      "MAINTENANCE_OPTIMIZATION": "Maintenance Optimization",
+      "SOFTWARE_ARCHITECTURE": "Software Architecture",
+      "CICD_PIPELINES": "CI/CD Pipelines",
+      "CONTAINERIZATION": "Containerization",
+      "FULL_STACK_DEV": "Full-Stack Development",
+      "AUTOMOTIVE_SYSTEMS": "Automotive Systems",
+      "SOFTWARE_TESTING": "Software Testing",
+      "ELECTRONIC_DIAGNOSIS": "Electronic Diagnosis",
+      "SAFETY_STANDARDS": "Safety Standards",
+      "BIG_DATA": "Big Data",
+      "ADVANCED_ANALYTICS": "Advanced Analytics",
+      "DATA_VISUALIZATION": "Data Visualization"
+    }
+  },
+  "HOME": {
+    "PAGE_TITLE": "Home - InnoTech University",
+    "HERO": {
+      "WELCOME": "Welcome to InnoTech University",
+      "SUBTITLE": "Education is the best key to success in life",
+      "CTA": "Preregister now!"
+    },
+    "STATS": {
+      "SECTION_TITLE": "Our Stats",
+      "SUBTITLE": "Excellence in Numbers",
+      "TEACHERS": "Teachers",
+      "RESEARCH": "Programs",
+      "DEPARTMENTS": "Departments"
+    },
+    "ABOUT": {
+      "SECTION_TITLE": "About Us",
+      "TITLE": "We are university since 2 years",
+      "EXCELLENCE": "2+ Years Excellence",
+      "DESCRIPTION": "InnoTech University has been a beacon of excellence in higher education for over a decade. We are committed to providing world-class education that prepares our students for the challenges of tomorrow. Our state-of-the-art facilities, experienced faculty, and innovative curriculum ensure that our graduates are well-equipped to make meaningful contributions to society.",
+      "READ_MORE": "Read more"
+    },
+    "EVENTS": {
+      "SECTION_TITLE": "Our News",
+      "TITLE": "Exciting Events",
+      "ANNUAL_SPORTS": {
+        "TITLE": "Annual sports day",
+        "DESCRIPTION": "Join us for our annual sports day featuring various competitions, team building activities, and celebration of athletic excellence among our students and faculty."
+      },
+      "AI_HACKATHON": {
+        "TITLE": "AI & Machine Learning Hackathon",
+        "DESCRIPTION": "Collaborate with peers to build innovative AI solutions in a 48-hour challenge."
+      },
+      "IT_CAREER_FAIR": {
+        "TITLE": "IT & Tech Career Fair",
+        "DESCRIPTION": "Meet top companies in the tech industry and explore internship and job opportunities."
+      }
+    },
+    "VIDEO_TOUR": {
+      "TITLE": "University Video Tour",
+      "COMING_SOON": "Video tour feature coming soon! Stay tuned for an immersive virtual experience of our campus."
+    },
+    "PROGRAMS": {
+      "TITLE": "Our programmes",
+      "ALL": {
+        "TITLE": "ALL PROGRAMS",
+        "DESCRIPTION": "Explore all our academic programs"
+      },
+      "LICENCE": {
+        "TITLE": "LICENCE PROGRAMS",
+        "DESCRIPTION": "Undergraduate degree programs"
+      },
+      "MASTERS": {
+        "TITLE": "MASTER'S PROGRAMS",
+        "DESCRIPTION": "Graduate degree programs"
+      }
+    },
+    "TEACHERS": {
+      "TITLE": "Our Pedagogical Team",
+      "VIEW_ALL": "View All Professors",
+      "VIEW_PROFILE": "View Profile"
+    },
+    "FOUNDERS": {
+      "TITLE": "Our Founders"
+    },
+    "GALLERY": {
+      "TITLE": "Frame by Frame"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "What Our Students Say",
+      "QUOTE_1": "InnoTech transformed my learning journey, blending theory with hands-on projects that prepared me for the real tech world. The mentorship I received here shaped my confidence and skills for my future career.",
+      "AUTHOR_NAME_1": "Sarah Ben Ali",
+      "AUTHOR_TITLE_1": "Computer Science Student",
+      "QUOTE_2": "The modern, interactive teaching methods at InnoTech made complex concepts clear and engaging. I was able to build real applications, collaborate on projects, and connect with industry mentors during my studies.",
+      "AUTHOR_NAME_2": "Youssef Trabelsi",
+      "AUTHOR_TITLE_2": "Software Engineering Student",
+      "QUOTE_3": "InnoTech’s programs opened doors for me in the tech industry. With hands-on labs, industry-driven projects, and dedicated instructors, I graduated fully ready to contribute in the data science field.",
+      "AUTHOR_NAME_3": "Amel Gharbi",
+      "AUTHOR_TITLE_3": "Data Science Graduate"
+    }
+  },
+  "PROFESSORS": {
+    "PAGE_TITLE": "Professors - InnoTech University",
+    "HERO": {
+      "TITLE": "Meet Our Faculty",
+      "SUBTITLE": "Academic Excellence",
+      "DESCRIPTION": "Discover our world-class professors who are dedicated to advancing knowledge and inspiring the next generation of leaders."
+    },
+    "FILTERS": {
+      "TITLE": "Our Professors",
+      "SUBTITLE": "Discover our world-class professors",
+      "SEARCH": "Search",
+      "SEARCH_PLACEHOLDER": "Search by name or speciality...",
+      "DEPARTMENT": "Department",
+      "SPECIALITY": "Speciality",
+      "GRADE": "Academic Grade",
+      "ALL_DEPARTMENTS": "All Departments",
+      "ALL_SPECIALITIES": "All Specialities",
+      "ALL_GRADES": "All Grades",
+      "CLEAR": "Clear Filters"
+    },
+    "RESULTS_COUNT": "Showing {{count}} of {{total}} professors",
+    "VIEW_PROFILE": "View Profile",
+    "DATA_LOADED": "Professors data loaded successfully",
+    "LOAD_ERROR": "Failed to load professors data. Please try again.",
+    "NO_RESULTS": {
+      "TITLE": "No Professors Found",
+      "MESSAGE": "We couldn't find any professors matching your search criteria. Try adjusting your filters or search terms.",
+      "CLEAR_FILTERS": "Clear All Filters"
+    }
+  },
+  "PROFESSOR_DETAILS": {
+    "PAGE_TITLE": "Professor Details - InnoTech University",
+    "BACK_TO_PROFESSORS": "Back to Professors",
+    "CONTACT": "Contact",
+    "DOWNLOAD_CV": "Download CV",
+    "CONTACT_INFO": "Contact Information",
+    "GET_IN_TOUCH": "Get in Touch",
+    "EMAIL": "Email",
+    "DEPARTMENT": "Department",
+    "SPECIALITY": "Speciality",
+    "ACADEMIC_GRADE": "Academic Grade",
+    "SEND_EMAIL": "Send Email",
+    "PROFESSIONAL_INFO": "Professional Information",
+    "ABOUT_PROFESSOR": "About Professor",
+    "ACADEMIC_BACKGROUND": "Academic Background",
+    "CURRENT_POSITION": "Current Position",
+    "SPECIALIZATION": "Specialization",
+    "RESEARCH_INTERESTS": "Research Interests",
+    "CURRICULUM_VITAE": "Curriculum Vitae",
+    "CV_DESCRIPTION": "Download the complete academic CV",
+    "DOWNLOAD": "Download",
+    "DATA_LOADED": "Professor data loaded successfully",
+    "LOAD_ERROR": "Failed to load professor data. Please try again.",
+    "NOT_FOUND": "Professor not found. Redirecting to professors page...",
+    "NOT_FOUND_TITLE": "Professor Not Found",
+    "NOT_FOUND_MESSAGE": "The professor you're looking for doesn't exist or has been removed.",
+    "CV_DOWNLOAD_SUCCESS": "CV download started successfully",
+    "CV_NOT_AVAILABLE": "CV file is not available for download"
+  },
+  "DEPARTMENTS": {
+    "EXCELLENCE_BADGE": "Academic Excellence",
+    "HERO_TITLE": "Discover Our Academic Departments",
+    "HERO_DESCRIPTION": "Explore our diverse range of world-class academic departments, each dedicated to advancing knowledge and inspiring the next generation of leaders through excellence in education and research.",
+    "VIEW_PROFESSORS": "View Professors",
+    "NO_DEPARTMENTS": "No Departments Available",
+    "NO_DEPARTMENTS_MESSAGE": "There are currently no departments to display.",
+    "LOAD_ERROR": "Error loading departments"
+  },
+  "DEPARTMENT_DETAILS": {
+    "BACK_TO_DEPARTMENTS": "Back to Departments",
+    "DEPARTMENT": "Department",
+    "PROFESSORS_COUNT": "Professors",
+    "ACTIVE": "Active",
+    "STATUS": "Status",
+    "OUR_TEAM": "Our Amazing Professors",
+    "MEET_PROFESSORS": "Meet Our Professors",
+    "PROFESSORS_DESCRIPTION": "Get to know the dedicated faculty members who make our department exceptional.",
+    "VIEW_PROFILE": "View Profile",
+    "NO_PROFESSORS": "No Professors Available",
+    "NO_PROFESSORS_MESSAGE": "This department currently has no professors assigned.",
+    "NOT_FOUND_TITLE": "Department Not Found",
+    "NOT_FOUND_MESSAGE": "The department you're looking for doesn't exist or has been removed.",
+    "NOT_FOUND": "Department not found"
+  },
+  "ABOUT": {
+    "EXCELLENCE_BADGE": "About InnoTech University",
+    "HERO_TITLE": "Shaping Tomorrow's Technology Leaders",
+    "HERO_DESCRIPTION": "Discover our commitment to excellence in technological education, innovation, and preparing students for the challenges of tomorrow's digital world.",
+    "HISTORY_TITLE": "Our History",
+    "HISTORY_DESCRIPTION": "Founded in 2025, InnoTech University has rapidly established itself as a reference in technological higher education. Our mission is to train highly qualified professionals, capable of meeting the technological challenges of the future.",
+    "TEACHERS_COUNT": "Teachers",
+    "INSERTION_RATE": "Job Placement Rate",
+    "FOUNDED_YEAR": "2025",
+    "FOUNDED_TEXT": "Founded",
+    "VALUES_TITLE": "Our Values",
+    "VALUES_DESCRIPTION": "Our core values guide everything we do, from curriculum design to student support, ensuring we deliver excellence in education.",
+    "VALUES": {
+      "INNOVATION": {
+        "TITLE": "Innovation",
+        "DESCRIPTION": "We encourage creativity and innovation in all our programs."
+      },
+      "EXCELLENCE": {
+        "TITLE": "Excellence",
+        "DESCRIPTION": "We strive for excellence in teaching and research."
+      },
+      "OPENNESS": {
+        "TITLE": "Openness",
+        "DESCRIPTION": "We promote open-mindedness and international exchanges."
+      },
+      "COLLABORATION": {
+        "TITLE": "Collaboration",
+        "DESCRIPTION": "We believe in the power of teamwork and collaboration."
+      }
+    },
+    "WHY_CHOOSE_TITLE": "Why Choose InnoTech University?",
+    "WHY_CHOOSE_DESCRIPTION": "Discover what makes InnoTech University the ideal choice for your technological education and career development.",
+    "WHY_CHOOSE": {
+      "ACADEMIC_EXCELLENCE": {
+        "TITLE": "Academic Excellence",
+        "DESCRIPTION": "Innovative study programs aligned with market needs."
+      },
+      "TECHNOLOGICAL_INNOVATION": {
+        "TITLE": "Technological Innovation",
+        "DESCRIPTION": "Laboratories equipped with the latest technologies."
+      },
+      "EXPERT_FACULTY": {
+        "TITLE": "Expert Faculty",
+        "DESCRIPTION": "Qualified and experienced teachers."
+      },
+      "INTERNATIONAL_PARTNERSHIPS": {
+        "TITLE": "International Partnerships",
+        "DESCRIPTION": "Collaborations with universities around the world."
+      }
+    },
+    "CTA_TITLE": "Ready to Start Your Journey?",
+    "CTA_DESCRIPTION": "Join InnoTech University and become part of the next generation of technology leaders.",
+    "EXPLORE_DEPARTMENTS": "Explore Departments",
+    "CONTACT_US": "Contact Us",
+    "CONTACT_COMING_SOON": "Contact form coming soon!",
+    "CTA_BADGE": "Ready to Start",
+    "HISTORY_BADGE": "Our History",
+    "VALUES_BADGE": "Our Values",
+    "WHY_CHOOSE_BADGE": "Why Choose InnoTech University?"
+  },
+  "NEWS": {
+    "EXCELLENCE_BADGE": "Latest News & Updates",
+    "HERO_TITLE": "Stay Informed with InnoTech University",
+    "HERO_DESCRIPTION": "Discover the latest news, announcements, and events from our vibrant university community. Stay connected with everything happening at InnoTech University.",
+    "FEATURED_NEWS": "Featured News",
+    "SEARCH_PLACEHOLDER": "Search news, announcements, and events...",
+    "ALL_CATEGORIES": "All Categories",
+    "VIEW_ALL": "View All",
+    "READ_MORE": "Read More",
+    "SEARCH_RESULTS": "Search Results",
+    "NO_RESULTS": "No Results Found",
+    "NO_RESULTS_MESSAGE": "Try adjusting your search terms or filters to find what you're looking for.",
+    "NO_NEWS_IN_CATEGORY": "No news available in this category.",
+    "RESET_FILTERS": "Reset Filters",
+    "CATEGORIES": {
+      "NOTICE": "Notice",
+      "ANNOUNCEMENT": "Announcement",
+      "EVENT": "Event"
+    },
+    "ARTICLE_TITLE": "Article Content",
+    "BACK_TO_NEWS": "Back to News",
+    "SHARE_ARTICLE": "Share This Article",
+    "COPY_LINK": "Copy Link",
+    "LINK_COPIED": "Link copied to clipboard!",
+    "LINK_COPY_ERROR": "Failed to copy link",
+    "RELATED_NEWS": "Related News",
+    "RELATED_NEWS_DESCRIPTION": "Discover more stories from the same category",
+    "NOT_FOUND_TITLE": "Article Not Found",
+    "NOT_FOUND_MESSAGE": "The article you're looking for doesn't exist or has been removed.",
+    "LOAD_ERROR": "Error loading news",
+    "DATA_LOADED": "News loaded successfully",
+    "NO_NEWS_DESCRIPTION": "Check back later for updates in this category.",
+    "SHARE_NEWS": "Share This News"
+  }
+}

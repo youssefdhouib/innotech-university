@@ -1,0 +1,308 @@
+/* Import Inter font for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.professor-detail-page {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced backdrop blur support */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Custom shadow utilities */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced button animations */
+button {
+  transform-style: preserve-3d;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Gradient text support */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Enhanced card hover effects */
+.group:hover .bg-gradient-to-r {
+  transform: translateY(-2px);
+}
+
+/* Image hover effects */
+.group:hover img {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* Enhanced glow effects */
+.group:hover .absolute.inset-0.blur-lg {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+}
+
+.rtl .flex {
+  flex-direction: row-reverse;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .justify-start {
+  justify-content: flex-end;
+}
+
+.rtl .lg\\:text-left {
+  text-align: right;
+}
+
+.rtl .lg\\:justify-start {
+  justify-content: flex-end;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 3px solid var(--InnoTech-primary);
+  outline-offset: 3px;
+  border-radius: 1rem;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 1024px) {
+  .grid.grid-cols-1.lg\\:grid-cols-5 {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .w-80.h-80.lg\\:w-96.lg\\:h-96 {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .text-5xl.lg\\:text-6xl {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-5xl.lg\\:text-6xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .px-8.py-4 {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .w-80.h-80 {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .gap-6 {
+    gap: 1rem;
+  }
+
+  .p-6 {
+    padding: 1rem;
+  }
+
+  .w-16.h-16 {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .w-8.h-8 {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .flex-col.sm\\:flex-row {
+    flex-direction: column;
+  }
+
+  .w-80.h-80 {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .px-4.sm\\:px-6.lg\\:px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .p-8.lg\\:p-12 {
+    padding: 1.5rem;
+  }
+
+  .text-xl {
+    font-size: 1.125rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--InnoTech-primary), var(--InnoTech-secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--InnoTech-secondary), var(--InnoTech-accent));
+}
+
+/* Performance optimizations */
+.transform,
+.group {
+  will-change: transform;
+}
+
+/* Enhanced visual hierarchy */
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+  font-weight: 900;
+}
+
+/* Better spacing for buttons */
+.inline-flex.items-center.gap-3 {
+  min-height: 4rem;
+}
+
+/* Enhanced gradient backgrounds */
+.bg-gradient-to-r,
+.bg-gradient-to-br {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .bg-gradient-to-r,
+  .bg-gradient-to-br {
+    background-attachment: scroll;
+  }
+}
+
+/* Improved card interactions */
+.group:hover .relative.inline-flex {
+  transform: translateY(-1px);
+}
+
+/* Better button states */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Enhanced text readability */
+.text-transparent.bg-clip-text {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced card styling */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+/* Better icon sizing */
+.w-16.h-16 svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.w-10.h-10 svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Enhanced hover effects for information cards */
+.group:hover .w-16.h-16 {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Better spacing */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+/* Enhanced shadow effects */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}

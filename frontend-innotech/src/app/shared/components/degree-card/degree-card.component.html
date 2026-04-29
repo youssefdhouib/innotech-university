@@ -1,0 +1,38 @@
+<div class="degree-card cursor-pointer group" (click)="onCardClick()" [class.rtl]="getCurrentLanguage() === 'ar'">
+  <div
+    class="relative overflow-hidden rounded-lg aspect-[3/4] transition-all duration-300 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-cover bg-center">
+      <img [src]="getBackgroundImage(degree.cover_image)" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+
+    <!-- Figma Blue Overlay with exact color and opacity -->
+    <div class="absolute inset-0 figma-blue-overlay"></div>
+
+    <!-- White Border Frame -->
+    <div class="absolute inset-4 border-2 border-white border-opacity-90 rounded">
+      <!-- Content -->
+      <div class="relative h-full flex flex-col justify-between p-4">
+        <!-- Degree Name -->
+        <div class="flex-1 flex items-center justify-center">
+          <h3 class="text-white text-lg font-semibold text-center leading-tight drop-shadow-lg px-2"
+            [class.text-right]="getCurrentLanguage() === 'ar'">
+            {{ degree.name }}
+          </h3>
+        </div>
+
+        <!-- Arrow Icon with enhanced hover effects -->
+        <div class="flex justify-center mt-4">
+          <div
+            class="arrow-container w-8 h-8 rounded-full border border-white border-opacity-90 flex items-center justify-center transition-all duration-300">
+            <svg class="arrow-icon w-4 h-4 text-white transition-all duration-300"
+              [class.rotate-180]="getCurrentLanguage() === 'ar'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

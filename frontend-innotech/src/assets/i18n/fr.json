@@ -1,0 +1,577 @@
+{
+  "APP": {
+    "TITLE": "Université InnoTech",
+    "SUBTITLE": "Portail de préinscription",
+    "LOADING": "Chargement...",
+    "LANGUAGE": "Langue",
+    "NO_DATA": "Aucune donnée disponible"
+  },
+  "NAV": {
+    "HOME": "Accueil",
+    "DEGREES": "Diplômes",
+    "TEACHERS": "Enseignants",
+    "DEPARTMENTS": "Départements",
+    "ABOUT": "À propos",
+    "CONTACT": "Contact",
+    "NEWS": "Actualités",
+    "PREREGISTER": "Préinscription",
+    "LANGUAGE": "Langue",
+    "NAVIGATION": "Navigation",
+    "REDIRECTING_TO_PREREGISTRATION": "Redirection vers la page de préinscription...",
+    "EXTRANET": "Extranet",
+    "EXTRANET_COMING_SOON": "Extranet bientôt disponible!"
+  },
+  "FORM": {
+    "TITLE": "Préinscription InnoTech University",
+    "DESCRIPTION": "Veuillez remplir ce formulaire pour commencer votre demande de préinscription à l'Université InnoTech. Un e-mail de confirmation vous sera envoyé après validation.",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom",
+    "FIRST_NAME_AR": "Prénom (Arabe)",
+    "LAST_NAME_AR": "Nom (Arabe)",
+    "EMAIL": "Email",
+    "DESIRED_DEGREE": "Diplôme souhaité",
+    "BIRTH_DATE": "Date de naissance",
+    "COUNTRY": "Pays",
+    "SELECT_COUNTRY": "Sélectionner un pays",
+    "GENDER": "Genre",
+    "ADDRESS": "Adresse",
+    "PHONE": "Téléphone",
+    "PREVIOUS_DEGREE": "Dernier diplôme",
+    "GRADUATION_YEAR": "Année de graduation",
+    "HOW_DID_YOU_HEAR": "Comment avez-vous entendu parler de nous ?",
+    "CIN": "CIN",
+    "PASSPORT": "Passeport",
+    "SUBMIT": "Soumettre",
+    "RESET": "Réinitialiser",
+    "SELECT": "Sélectionner",
+    "PERSONAL_INFO": "Informations personnelles",
+    "IDENTIFICATION_INFO": "Informations d'identification",
+    "ACADEMIC_INFO": "Informations académiques",
+    "CONTACT_INFO": "Coordonnées",
+    "CONFIRM_TITLE": "Confirmation de préinscription - Université InnoTech",
+    "RECAP": "Récapitulatif de votre préinscription",
+    "UPLOAD_TITLE": "Joindre vos documents requis",
+    "UPLOAD_DESC": "Merci de joindre des copies conformes et lisibles des documents requis pour finaliser votre préinscription à l'Université InnoTech."
+  },
+  "COUNTRIES": {
+    "TUNISIA": "Tunisie",
+    "ALGERIA": "Algérie",
+    "LIBYA": "Libye",
+    "MOROCCO": "Maroc",
+    "EGYPT": "Égypte"
+  },
+  "DOCS": {
+    "BAC_COPY": "Copie conforme du diplôme du baccalauréat",
+    "BIRTH_CERTIFICATE": "Certificat de naissance",
+    "ID_PHOTO": "Photo d’identité",
+    "ID_COPY": "Copie de la carte d’identité nationale (CIN) ou passeport",
+    "SIGNED_RULES": "Exemplaire du règlement intérieur signé",
+    "LICENSE_DIPLOMA": "Copie légalisée du diplôme de Licence ou équivalent",
+    "TRANSCRIPTS": "Relevés de notes (copies conformes)"
+  },
+  "GENDER": {
+    "MALE": "Homme",
+    "FEMALE": "Femme",
+    "OTHER": "Autre"
+  },
+  "TOAST": {
+    "SUCCESS": "Soumission réussie",
+    "ERROR": "Erreur lors de la soumission",
+    "FILL_REQUIRED": "Veuillez remplir tous les champs obligatoires.",
+    "LOADED": "Données chargées avec succès",
+    "LOAD_ERROR": "Erreur lors du chargement des données",
+    "INFO": "Info",
+    "WARN": "Avertissement"
+  },
+  "VALIDATION": {
+    "REQUIRED_FIELDS": "Veuillez remplir ou vérifier tous les champs obligatoires.",
+    "REQUIRED": "Ce champ est requis",
+    "INVALID_EMAIL": "Email invalide",
+    "MIN_CHAR": "Ce champ doit contenir au moins {{count}} caractères.",
+    "CIN_PATTERN": "CIN doit contenir exactement 8 chiffres",
+    "YEAR_INVALID_FORMAT": "Veuillez entrer une année valide (4 chiffres)",
+    "YEAR_OUT_OF_RANGE": "Veuillez entrer une année valide (entre 1900 et 2025)"
+  },
+  "FOOTER": {
+    "DESCRIPTION": "L'Université InnoTech est une université de haut niveau qui offre des programmes de qualité supérieure. Nous sommes fiers de notre réputation et de notre engagement envers l'excellence académique.",
+    "FOLLOW_US": "Suivez-nous",
+    "QUICK_LINKS": "Liens rapides",
+    "ACADEMICS": "Académie",
+    "STUDENT_SERVICES": "Services aux étudiants",
+    "CONTACT_INFO": "Informations de contact",
+    "VIEW_MAP": "Voir sur la carte",
+    "BACK_TO_TOP": "Retour en haut",
+    "COPYRIGHT": "Tous droits réservés.",
+    "PRIVACY_POLICY": "Politique de confidentialité",
+    "TERMS_OF_USE": "Conditions d'utilisation",
+    "ACCESSIBILITY": "Accessibilité",
+    "CONTACT_US": "Contactez-nous",
+    "LINKS": {
+      "HOME": "Accueil",
+      "ABOUT": "À propos",
+      "DEGREES": "Diplômes",
+      "TEACHERS": "Enseignants",
+      "DEPARTMENTS": "Départements",
+      "CONTACT": "Contact",
+      "NEWS": "Actualités"
+    },
+    "STUDENTS_SERVICES": {
+      "TITLE": "Services aux étudiants",
+      "EXTRANET": "Extranet",
+      "SCHOLARSHIPS": "Bourses",
+      "RESEARCH": "Recherche",
+      "LIBRARY": "Bibliothèque",
+      "CALENDAR": "Calendrier",
+      "STUDENT_LIFE": "Vie étudiante"
+    },
+    "SERVICES": {
+      "STUDENT_PORTAL": "Portail des étudiants",
+      "CAREER_CENTER": "Centre de carrière",
+      "COUNSELING": "Services de conseil",
+      "HOUSING": "Logement",
+      "DINING": "Services de restauration"
+    }
+  },
+  "BUTTONS": {
+    "RETURN_HOME": "Retour à l'accueil",
+    "SUBMIT": "Soumettre",
+    "RESET": "Réinitialiser",
+    "SELECT": "Sélectionner"
+  },
+ "CONTACT": {
+  "HERO_TITLE": "Contactez-nous",
+  "HERO_SUBTITLE": "Nous sommes là pour répondre à toutes vos questions sur nos programmes, les admissions ou la vie universitaire.",
+  "GET_IN_TOUCH": "Informations de contact",
+  "ADDRESS_TITLE": "Nous rendre visite",
+  "ADDRESS": "123 Avenue de l’Université, Tech City, TC 12345, France",
+  "PHONE_TITLE": "Appelez-nous",
+  "PHONE": "+33 1 23 45 67 89",
+  "EMAIL_TITLE": "Envoyez-nous un email",
+  "EMAIL": "contact@InnoTech-university.fr",
+  "HOURS_TITLE": "Heures d'ouverture",
+  "HOURS_WEEKDAYS": "Lundi - Vendredi : 8h00 - 18h00",
+  "HOURS_WEEKEND": "Samedi : 9h00 - 14h00",
+  "FIND_US": "Nous trouver",
+  "MAP_DESCRIPTION": "Située dans un endroit pratique juste à côté de la rue, facilement accessible pour tout le monde.",
+  "MAP_PLACEHOLDER": "Carte interactive bientôt disponible",
+  "GET_DIRECTIONS": "Obtenir l’itinéraire",
+  "SOCIAL_MEDIA": "Réseaux sociaux",
+  "SOCIAL_DESCRIPTION": "Suivez-nous pour rester informé des dernières actualités.",
+  "FOLLOW_US": "Suivez-nous",
+  "LIVE_CHAT": "Chat en direct",
+  "CHAT_DESCRIPTION": "Obtenez des réponses instantanées à vos questions.",
+  "START_CHAT": "Démarrer le chat",
+  "FAQ": "FAQ",
+  "FAQ_DESCRIPTION": "Trouvez des réponses aux questions fréquentes.",
+  "VIEW_FAQ": "Voir la FAQ",
+  "CONNECT_WITH_US": "Restons en contact",
+  "SOCIAL_SUBTITLE": "Suivez-nous sur les réseaux sociaux pour rester informé des dernières actualités, événements et opportunités à l’InnoTech University.",
+  "FACEBOOK_FOLLOWERS": "5.2K abonnés",
+  "INSTAGRAM_FOLLOWERS": "3.8K abonnés",
+  "LINKEDIN_FOLLOWERS": "2.1K abonnés",
+  "YOUTUBE_SUBSCRIBERS": "1.5K abonnés",
+  "NEWSLETTER_TITLE": "Restez informé",
+  "NEWSLETTER_DESCRIPTION": "Abonnez-vous à notre newsletter pour ne rien manquer des dernières actualités, événements et opportunités à l’InnoTech University.",
+  "NEWSLETTER_PLACEHOLDER": "Entrez votre adresse e-mail",
+  "SUBSCRIBE": "S'abonner",
+  "RESPONSE_TIME_TITLE": "Réponse rapide",
+  "RESPONSE_TIME_DESC": "Nous répondons généralement à toutes les demandes dans les 24 heures pendant les jours ouvrables.",
+  "TIP_1_TITLE": "Soyez précis",
+  "TIP_1_DESC": "Incluez des détails spécifiques sur votre demande pour une réponse plus rapide.",
+  "TIP_2_TITLE": "Vérifiez votre e-mail",
+  "TIP_2_DESC": "Veuillez vérifier votre dossier de spam pour nos réponses.",
+  "TIP_3_TITLE": "Incluez des détails importants",
+  "TIP_3_DESC": "Mentionnez des dates, des noms ou des départements si cela est pertinent .",
+  "TIP_4_TITLE": "Matières urgentes",
+  "TIP_4_DESC": "Pour les urgences, veuillez nous appeler directement pendant les heures d'ouverture.",
+  "QUICK_LINKS_TITLE": "Liens rapides",
+  "LINK_ADMISSIONS": "Admissions",
+  "LINK_PROGRAMS": "Programmes",
+  "LINK_SCHOLARSHIPS": "Bourses",
+  "LINK_CAMPUS": "Vie étudiante",
+  "EMERGENCY_TITLE": "Contact d'urgence",
+  "EMERGENCY_DESC": "Pour les urgences en dehors des heures d'ouverture, veuillez utiliser notre numéro d'urgence.",
+  "EMERGENCY_CALL": "Numéro d'urgence"
+},
+"CONTACT_FORM": {
+  "TITLE": "Envoyez-nous un message",
+  "SUBTITLE": "Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.",
+  "NAME": "Nom complet",
+  "NAME_PLACEHOLDER": "Entrez votre nom complet",
+  "EMAIL": "Adresse e-mail",
+  "EMAIL_PLACEHOLDER": "Entrez votre adresse e-mail",
+  "SERVICE": "Département",
+  "MESSAGE": "Message",
+  "MESSAGE_PLACEHOLDER": "Comment pouvons-nous vous aider ?",
+  "SUCCESS": "Votre message a été envoyé avec succès !",
+  "SERVICES": {
+    "SCOLARITE": "Services étudiants",
+    "BIBLIOTHEQUE": "Bibliothèque",
+    "ADMINISTRATION": "Administration"
+  }
+}
+,
+  "DEGREES": {
+    "HERO": {
+      "SUBTITLE": "Nos Formations",
+      "TITLE": "Découvrez nos Diplômes",
+      "DESCRIPTION": "Parcourez nos licences et mastères conçus pour vous propulser vers l’avenir."
+    },
+    "TITLE": "Nos Diplômes",
+    "SEARCH_PLACEHOLDER": "Rechercher des diplômes...",
+    "FILTERS": {
+      "ALL": "Tous",
+      "LICENCE": "Licences",
+      "MASTERS": "Masters"
+    },
+    "LICENCE_DEGREES": "Licences",
+    "MASTERS_DEGREES": "Masters",
+    "SEARCH_RESULTS": "Résultats de recherche",
+    "NO_RESULTS": "Aucun diplôme trouvé correspondant à votre recherche",
+    "TRY_DIFFERENT_SEARCH": "Essayez avec des mots-clés différents",
+    "DEGREE_SELECTED": "{{name}} sélectionné",
+    "VISION": {
+      "TITLE": "Vision de l'Université InnoTech",
+      "TECH_EXCELLENCE": {
+        "TITLE": "Excellence Technologique",
+        "DESCRIPTION": "Favoriser l'innovation et la maîtrise technique dans les sciences informatiques"
+      },
+      "DIGITAL_INNOVATION": {
+        "TITLE": "Innovation Numérique",
+        "DESCRIPTION": "Mener des recherches révolutionnaires en IA, ML et technologies émergentes"
+      },
+      "INDUSTRY_PARTNERSHIP": {
+        "TITLE": "Partenariat Industriel",
+        "DESCRIPTION": "Connecter les étudiants avec les entreprises technologiques et startups leaders"
+      },
+      "GLOBAL_IMPACT": {
+        "TITLE": "Impact Mondial",
+        "DESCRIPTION": "Créer un impact positif à l'échelle mondiale grâce à l'éducation et l'innovation"
+      }
+    }
+  },
+  "DEGREE_DETAIL": {
+    "PAGE_TITLE": "Détails du diplôme",
+    "BACK_TO_DEGREES": "Retour aux diplômes",
+    "DEGREE_NOT_FOUND": "Diplôme non trouvé. Redirection vers la page des diplômes...",
+    "NAVIGATION_ERROR": "Erreur lors de la navigation vers les détails du diplôme",
+    "IN": "en",
+    "LICENCE": "Licence",
+    "MASTERS": "Master",
+    "INTRO": "Introduction",
+    "MODULES": "Modules",
+    "DOWNLOAD_PROGRAM": "Télécharger le programme",
+    "PROGRAM_BENEFITS": "Avantages du programme",
+    "DEFAULT_INTRO": "Nous nous engageons à être un centre de référence mondial en éducation et en recherche, créant un environnement d'apprentissage dynamique qui permet aux individus de prospérer dans un monde en constante évolution. Notre vision est de cultiver le raisonnement critique, l'innovation et la responsabilité sociale auprès de nos étudiants, les équipant pour apporter des contributions significatives à la société.",
+    "DOWNLOAD_DESCRIPTION": "Vous pouvez télécharger tous les programmes en PDF ici :",
+    "DOWNLOAD_PDF": "TÉLÉCHARGER PDF",
+    "NO_MODULES": "Aucun module disponible pour ce diplôme.",
+    "NO_FILES_AVAILABLE": "Aucun fichier disponible pour téléchargement.",
+    "INTRODUCTION": "Introduction",
+    "AVAILABLE_PROGRAMS": "Programmes disponibles",
+    "NO_PROGRAMS_TITLE": "Aucun programme disponible",
+    "NO_PROGRAMS_DESC": "Ce diplôme n'a actuellement aucun programme disponible. Veuillez vérifier plus tard ou contacter-nous pour plus d'informations.",
+    "ERROR_TITLE": "Diplôme non trouvé",
+    "ERROR_DESC": "Le diplôme demandé n'a pas pu être trouvé. Veuillez vérifier l'URL ou retourner à la page des diplômes.",
+    "DATA_LOADED": "Détails du diplôme chargés avec succès",
+    "NO_FILE_AVAILABLE": "Aucun fichier disponible pour téléchargement",
+    "DOWNLOAD_STARTED": "Téléchargement démarré pour {{name}}",
+    "DOWNLOAD_ERROR": "Une erreur est survenue lors du téléchargement du fichier",
+    "ERROR_OCCURRED": "Une erreur est survenue lors du chargement des détails du diplôme",
+    "BENEFITS": {
+      "ACADEMIC_EXCELLENCE": "Excellence académique",
+      "INNOVATION": "Innovation et créativité",
+      "EMPLOYABILITY": "Haute employabilité",
+      "TECHNICAL_EXCELLENCE": "Excellence technique",
+      "DATA_INSIGHTS": "Informations basées sur les données",
+      "ANALYTICS": "Analytique avancée",
+      "MARKET_RELEVANCE": "Relevance du marché",
+      "BIG_DATA_TECHNOLOGIES": "Technologies Big Data",
+      "IOT_SKILLS": "Compétences IoT",
+      "EMBEDDED_SYSTEMS": "Systèmes embarqués",
+      "CONNECTIVITY": "Connectivité",
+      "HARDWARE_INTEGRATION": "Intégration matérielle",
+      "ROBOTICS": "Robotique",
+      "AUTOMATION": "Automatisation",
+      "EMBEDDED_ELECTRONICS": "Électronique embarquée",
+      "SMART_SYSTEMS": "Systèmes intelligents",
+      "MANAGEMENT_SKILLS": "Compétences en gestion",
+      "LEADERSHIP": "Leadership",
+      "FINANCIAL_CONTROL": "Contrôle financier",
+      "MARKET_STRATEGY": "Stratégie marketing",
+      "DATA_ANALYSIS": "Analyse des données",
+      "INDUSTRIAL_PROCESS": "Processus industriel",
+      "MACHINE_LEARNING": "Machine Learning",
+      "MAINTENANCE_OPTIMIZATION": "Optimisation de la maintenance",
+      "SOFTWARE_ARCHITECTURE": "Architecture logicielle",
+      "CICD_PIPELINES": "Pipelines CI/CD",
+      "CONTAINERIZATION": "Containerisation",
+      "FULL_STACK_DEV": "Développement full-stack",
+      "AUTOMOTIVE_SYSTEMS": "Systèmes automatisés",
+      "SOFTWARE_TESTING": "Test logiciel",
+      "ELECTRONIC_DIAGNOSIS": "Diagnostic électronique",
+      "SAFETY_STANDARDS": "Normes de sécurité",
+      "BIG_DATA": "Big Data",
+      "ADVANCED_ANALYTICS": "Analytique avancée",
+      "DATA_VISUALIZATION": "Visualisation des données"
+    }
+  },
+  "HOME": {
+    "PAGE_TITLE": "Accueil - Université InnoTech",
+    "HERO": {
+      "WELCOME": "Bienvenue à l'UNIVERSITÉ InnoTech",
+      "SUBTITLE": "L'éducation est la meilleure clé du succès dans la vie",
+      "CTA": "Préinscrivez-vous maintenant!"
+    },
+    "STATS": {
+      "SECTION_TITLE": "Nos Statistiques",
+      "SUBTITLE": "Excellence en Chiffres",
+      "TEACHERS": "Enseignants",
+      "RESEARCH": "Programmes",
+      "DEPARTMENTS": "Départements"
+    },
+    "ABOUT": {
+      "SECTION_TITLE": "À Propos de Nous",
+      "EXCELLENCE": "2+ Ans d'Excellence",
+      "TITLE": "Nous sommes une université depuis 2 ans",
+      "DESCRIPTION": "L'Université InnoTech est un phare d'excellence dans l'enseignement supérieur depuis plus d'une décennie. Nous nous engageons à fournir une éducation de classe mondiale qui prépare nos étudiants aux défis de demain.",
+      "READ_MORE": "Lire la suite"
+    },
+    "EVENTS": {
+      "SECTION_TITLE": "Nos Événements",
+      "TITLE": "Événements Intéressants",
+      "ANNUAL_SPORTS": {
+        "TITLE": "Journée sportive annuelle",
+        "DESCRIPTION": "Rejoignez-nous pour notre journée sportive annuelle avec diverses compétitions et activités de team building."
+      },
+      "AI_HACKATHON": {
+        "TITLE": "Hackathon IA et Machine Learning",
+        "DESCRIPTION": "Collaborez avec vos pairs pour développer des solutions IA innovantes lors d'un challenge de 48 heures."
+      },
+      "IT_CAREER_FAIR": {
+        "TITLE": "Forum des Métiers IT & Tech",
+        "DESCRIPTION": "Rencontrez les meilleures entreprises du secteur et explorez des opportunités de stages et d'emplois."
+      }
+    },
+    "VIDEO_TOUR": {
+      "TITLE": "Visite vidéo de l'université",
+      "COMING_SOON": "La visite vidéo arrive bientôt ! Restez à l'écoute pour une expérience virtuelle immersive de notre campus."
+    },
+    "PROGRAMS": {
+      "TITLE": "Nos programmes",
+      "ALL": {
+        "TITLE": "TOUS LES PROGRAMMES",
+        "DESCRIPTION": "Explorez tous nos programmes académiques"
+      },
+      "LICENCE": {
+        "TITLE": "PROGRAMMES DE LICENCE",
+        "DESCRIPTION": "Programmes de premier cycle"
+      },
+      "MASTERS": {
+        "TITLE": "PROGRAMMES DE MASTER",
+        "DESCRIPTION": "Programmes de deuxième cycle"
+      }
+    },
+    "TEACHERS": {
+      "TITLE": "Notre Équipe Pédagogique",
+      "VIEW_ALL": "Voir Tous les Enseignants",
+      "VIEW_PROFILE": "Voir le Profil"
+    },
+    "FOUNDERS": {
+      "TITLE": "Nos Fondateurs"
+    },
+    "GALLERY": {
+      "TITLE": "Image par Image"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "Ce que disent nos étudiants",
+      "QUOTE_1": "InnoTech a transformé mon parcours d'apprentissage en combinant théorie et projets pratiques qui m'ont préparée au monde réel de la tech. Le mentorat que j'y ai reçu a renforcé ma confiance et mes compétences pour ma future carrière.",
+      "AUTHOR_NAME_1": "Sarah Ben Ali",
+      "AUTHOR_TITLE_1": "Étudiante en Informatique",
+      "QUOTE_2": "Les méthodes d'enseignement modernes et interactives d'InnoTech ont rendu les concepts complexes clairs et engageants. J'ai pu développer de vraies applications, collaborer sur des projets et rencontrer des mentors du secteur pendant mes études.",
+      "AUTHOR_NAME_2": "Youssef Trabelsi",
+      "AUTHOR_TITLE_2": "Étudiant en Génie Logiciel",
+      "QUOTE_3": "Les programmes d'InnoTech m'ont ouvert les portes de l'industrie technologique. Grâce aux laboratoires pratiques, aux projets orientés industrie et aux enseignants dévoués, j'ai obtenu mon diplôme prêt à contribuer dans le domaine de la data science.",
+      "AUTHOR_NAME_3": "Amel Gharbi",
+      "AUTHOR_TITLE_3": "Diplômée en Data Science"
+    }
+  },
+  "PROFESSORS": {
+    "PAGE_TITLE": "Professeurs - Université InnoTech",
+    "HERO": {
+      "TITLE": "Rencontrez Notre Corps Professoral",
+      "SUBTITLE": "Excellence Académique",
+      "DESCRIPTION": "Découvrez nos professeurs de classe mondiale qui se consacrent à l'avancement des connaissances et à l'inspiration de la prochaine génération de leaders."
+    },
+    "FILTERS": {
+      "TITLE": "Nos Professeurs",
+      "SUBTITLE": "Découvrez nos professeurs de classe mondiale",
+      "SEARCH": "Rechercher",
+      "SEARCH_PLACEHOLDER": "Rechercher par nom ou spécialité...",
+      "DEPARTMENT": "Département",
+      "SPECIALITY": "Spécialité",
+      "GRADE": "Grade Académique",
+      "ALL_DEPARTMENTS": "Tous les Départements",
+      "ALL_SPECIALITIES": "Toutes les Spécialités",
+      "ALL_GRADES": "Tous les Grades",
+      "CLEAR": "Effacer les Filtres"
+    },
+    "RESULTS_COUNT": "Affichage de {{count}} sur {{total}} professeurs",
+    "VIEW_PROFILE": "Voir le Profil",
+    "DATA_LOADED": "Données des professeurs chargées avec succès",
+    "LOAD_ERROR": "Échec du chargement des données des professeurs. Veuillez réessayer.",
+    "NO_RESULTS": {
+      "TITLE": "Aucun Professeur Trouvé",
+      "MESSAGE": "Nous n'avons trouvé aucun professeur correspondant à vos critères de recherche. Essayez d'ajuster vos filtres ou termes de recherche.",
+      "CLEAR_FILTERS": "Effacer Tous les Filtres"
+    }
+  },
+  "PROFESSOR_DETAILS": {
+    "PAGE_TITLE": "Détails du Professeur - Université InnoTech",
+    "BACK_TO_PROFESSORS": "Retour aux Professeurs",
+    "CONTACT": "Contact",
+    "DOWNLOAD_CV": "Télécharger CV",
+    "CONTACT_INFO": "Informations de Contact",
+    "GET_IN_TOUCH": "Entrer en Contact",
+    "EMAIL": "Email",
+    "DEPARTMENT": "Département",
+    "SPECIALITY": "Spécialité",
+    "ACADEMIC_GRADE": "Grade Académique",
+    "SEND_EMAIL": "Envoyer un Email",
+    "PROFESSIONAL_INFO": "Informations Professionnelles",
+    "ABOUT_PROFESSOR": "À Propos du Professeur",
+    "ACADEMIC_BACKGROUND": "Formation Académique",
+    "CURRENT_POSITION": "Poste Actuel",
+    "SPECIALIZATION": "Spécialisation",
+    "RESEARCH_INTERESTS": "Intérêts de Recherche",
+    "CURRICULUM_VITAE": "Curriculum Vitae",
+    "CV_DESCRIPTION": "Télécharger le CV académique complet",
+    "DOWNLOAD": "Télécharger",
+    "DATA_LOADED": "Données du professeur chargées avec succès",
+    "LOAD_ERROR": "Échec du chargement des données du professeur. Veuillez réessayer.",
+    "NOT_FOUND": "Professeur non trouvé. Redirection vers la page des professeurs...",
+    "NOT_FOUND_TITLE": "Professeur Non Trouvé",
+    "NOT_FOUND_MESSAGE": "Le professeur que vous recherchez n'existe pas ou a été supprimé.",
+    "CV_DOWNLOAD_SUCCESS": "Téléchargement du CV commencé avec succès",
+    "CV_NOT_AVAILABLE": "Le fichier CV n'est pas disponible pour le téléchargement"
+  },
+  "DEPARTMENTS": {
+    "EXCELLENCE_BADGE": "Excellence Académique",
+    "HERO_TITLE": "Découvrez Nos Départements Académiques",
+    "HERO_DESCRIPTION": "Explorez nos divers départements académiques de classe mondiale, chacun dédié à l'avancement des connaissances et à l'inspiration de la prochaine génération de leaders.",
+    "VIEW_PROFESSORS": "Voir les Professeurs",
+    "NO_DEPARTMENTS": "Aucun Département Disponible",
+    "NO_DEPARTMENTS_MESSAGE": "Il n'y a actuellement aucun département à afficher.",
+    "LOAD_ERROR": "Erreur lors du chargement des départements"
+  },
+  "DEPARTMENT_DETAILS": {
+    "BACK_TO_DEPARTMENTS": "Retour aux Départements",
+    "DEPARTMENT": "Département",
+    "PROFESSORS_COUNT": "Professeurs",
+    "ACTIVE": "Actif",
+    "STATUS": "Statut",
+    "OUR_TEAM": "Nos Professeurs Exceptionnels",
+    "MEET_PROFESSORS": "Rencontrez Nos Professeurs",
+    "PROFESSORS_DESCRIPTION": "Découvrez les membres du corps professoral qui rendent notre département exceptionnel.",
+    "VIEW_PROFILE": "Voir le Profil",
+    "NO_PROFESSORS": "Aucun Professeur Disponible",
+    "NO_PROFESSORS_MESSAGE": "Ce département n'a actuellement aucun professeur assigné.",
+    "NOT_FOUND_TITLE": "Département Non Trouvé",
+    "NOT_FOUND_MESSAGE": "Le département que vous recherchez n'existe pas ou a été supprimé.",
+    "NOT_FOUND": "Département non trouvé"
+  },
+  "ABOUT": {
+    "EXCELLENCE_BADGE": "À Propos d'InnoTech University",
+    "HERO_TITLE": "Former les Leaders Technologiques de Demain",
+    "HERO_DESCRIPTION": "Découvrez notre engagement envers l'excellence en éducation technologique, l'innovation, et la préparation des étudiants aux défis du monde numérique de demain.",
+    "HISTORY_TITLE": "Notre Histoire",
+    "HISTORY_DESCRIPTION": "Fondée en 2025, InnoTech University s'est rapidement imposée comme une référence dans l'enseignement supérieur technologique. Notre mission est de former des professionnels hautement qualifiés, capables de répondre aux défis technologiques du futur.",
+    "TEACHERS_COUNT": "Enseignants",
+    "INSERTION_RATE": "Taux d'Insertion",
+    "FOUNDED_YEAR": "2025",
+    "FOUNDED_TEXT": "Fondée",
+    "VALUES_TITLE": "Nos Valeurs",
+    "VALUES_DESCRIPTION": "Nos valeurs fondamentales guident tout ce que nous faisons, de la conception des programmes au soutien des étudiants, garantissant l'excellence en éducation.",
+    "VALUES": {
+      "INNOVATION": {
+        "TITLE": "Innovation",
+        "DESCRIPTION": "Nous encourageons la créativité et l'innovation dans tous nos programmes."
+      },
+      "EXCELLENCE": {
+        "TITLE": "Excellence",
+        "DESCRIPTION": "Nous visons l'excellence dans l'enseignement et la recherche."
+      },
+      "OPENNESS": {
+        "TITLE": "Ouverture",
+        "DESCRIPTION": "Nous favorisons l'ouverture d'esprit et les échanges internationaux."
+      },
+      "COLLABORATION": {
+        "TITLE": "Collaboration",
+        "DESCRIPTION": "Nous croyons en la force du travail d'équipe et de la collaboration."
+      }
+    },
+    "WHY_CHOOSE_TITLE": "Pourquoi Choisir InnoTech University ?",
+    "WHY_CHOOSE_DESCRIPTION": "Découvrez ce qui fait d'InnoTech University le choix idéal pour votre éducation technologique et votre développement de carrière.",
+    "WHY_CHOOSE": {
+      "ACADEMIC_EXCELLENCE": {
+        "TITLE": "Excellence Académique",
+        "DESCRIPTION": "Des programmes d'études innovants alignés sur les besoins du marché."
+      },
+      "TECHNOLOGICAL_INNOVATION": {
+        "TITLE": "Innovation Technologique",
+        "DESCRIPTION": "Des laboratoires équipés des dernières technologies."
+      },
+      "EXPERT_FACULTY": {
+        "TITLE": "Corps Professoral Expert",
+        "DESCRIPTION": "Des enseignants qualifiés et expérimentés."
+      },
+      "INTERNATIONAL_PARTNERSHIPS": {
+        "TITLE": "Partenariats Internationaux",
+        "DESCRIPTION": "Des collaborations avec des universités du monde entier."
+      }
+    },
+    "CTA_TITLE": "Prêt à Commencer Votre Parcours ?",
+    "CTA_DESCRIPTION": "Rejoignez InnoTech University et faites partie de la prochaine génération de leaders technologiques.",
+    "EXPLORE_DEPARTMENTS": "Explorer les Départements",
+    "CONTACT_US": "Nous Contacter",
+    "CONTACT_COMING_SOON": "Formulaire de contact bientôt disponible !",
+    "CTA_BADGE": "Prêt à Commencer",
+    "HISTORY_BADGE": "Notre Histoire",
+    "VALUES_BADGE": "Nos Valeurs",
+    "WHY_CHOOSE_BADGE": "Pourquoi Choisir InnoTech University ?"
+  },
+  "NEWS": {
+    "EXCELLENCE_BADGE": "Dernières Nouvelles et Mises à Jour",
+    "HERO_TITLE": "Restez Informé avec InnoTech University",
+    "HERO_DESCRIPTION": "Découvrez les dernières nouvelles, annonces et événements de notre communauté universitaire dynamique. Restez connecté avec tout ce qui se passe à InnoTech University.",
+    "FEATURED_NEWS": "Nouvelles en Vedette",
+    "SEARCH_PLACEHOLDER": "Rechercher des nouvelles, annonces et événements...",
+    "ALL_CATEGORIES": "Toutes les Catégories",
+    "VIEW_ALL": "Voir Tout",
+    "READ_MORE": "Lire Plus",
+    "SEARCH_RESULTS": "Résultats de Recherche",
+    "NO_RESULTS": "Aucun Résultat Trouvé",
+    "NO_RESULTS_MESSAGE": "Essayez d'ajuster vos termes de recherche ou filtres pour trouver ce que vous cherchez.",
+    "NO_NEWS_IN_CATEGORY": "Aucune nouvelle disponible dans cette catégorie.",
+    "RESET_FILTERS": "Réinitialiser les Filtres",
+    "CATEGORIES": {
+      "NOTICE": "Avis",
+      "ANNOUNCEMENT": "Annonce",
+      "EVENT": "Événement"
+    },
+    "ARTICLE_TITLE": "Contenu de l’article",
+    "BACK_TO_NEWS": "Retour aux Nouvelles",
+    "SHARE_ARTICLE": "Partager cet Article",
+    "COPY_LINK": "Copier le Lien",
+    "LINK_COPIED": "Lien copié dans le presse-papiers !",
+    "LINK_COPY_ERROR": "Échec de la copie du lien",
+    "RELATED_NEWS": "Nouvelles Connexes",
+    "RELATED_NEWS_DESCRIPTION": "Découvrez plus d'histoires de la même catégorie",
+    "NOT_FOUND_TITLE": "Article Non Trouvé",
+    "NOT_FOUND_MESSAGE": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+    "LOAD_ERROR": "Erreur lors du chargement des nouvelles",
+    "DATA_LOADED": "Nouvelles chargées avec succès",
+    "NO_NEWS_DESCRIPTION": "Vérifiez plus tard pour les mises à jour dans cette catégorie.",
+    "SHARE_NEWS": "Partager cette Nouvelle"
+  }
+}

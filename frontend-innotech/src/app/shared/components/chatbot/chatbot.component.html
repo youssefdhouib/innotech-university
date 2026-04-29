@@ -1,0 +1,25 @@
+<div class="chatbot-container" [class.open]="isOpen">
+  <div class="chat-toggle" (click)="toggleChat()">
+    <img src="assets/icons/boticon.png" alt="Chatbot" class="chatbot-icon" />
+  </div>
+
+  <div class="chat-window" *ngIf="isOpen">
+    <div class="chat-header">💬 Chat with our AI assistant</div>
+
+    <div class="chat-body">
+      <div class="chat-messages">
+        <div *ngFor="let msg of messages" class="chat-bubble">
+          <div class="user"><strong>You:</strong> {{ msg.user }}</div>
+          <div class="bot"><strong>Bot:</strong>&nbsp; <span [innerHTML]="msg.bot"></span></div>
+        </div>
+        <div #chatEnd></div>
+      </div>
+
+      <input
+        [(ngModel)]="userInput"
+        (keydown.enter)="sendMessage()"
+        placeholder="Type your message..."
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,181 @@
+<!-- Loader Component -->
+<app-loader></app-loader>
+<div class="min-h-screen bg-gray-50" [attr.dir]="getCurrentLanguage() === 'ar' ? 'rtl' : 'ltr'" *ngIf="!isLoading()">
+  <!-- Modern Signal-based Loader -->
+  <app-loader></app-loader>
+  <app-page-header
+      [subtitle]="'DEGREES.HERO.SUBTITLE' | translate"
+      [title]="'DEGREES.HERO.TITLE' | translate"
+      [description]="'DEGREES.HERO.DESCRIPTION' | translate"
+      size="lg"
+    ></app-page-header>
+  <!-- Header Section -->
+  <div class="container mx-auto px-4 py-12">
+
+    <div class="text-center mb-8">
+      <!-- Search Bar -->
+      <div class="max-w-md mx-auto mb-6">
+        <div class="relative">
+          <div class="absolute inset-y-0 flex items-center pointer-events-none"
+               [class.right-3]="getCurrentLanguage() === 'ar'"
+               [class.left-3]="getCurrentLanguage() !== 'ar'">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            (input)="onSearchChange()"
+            [placeholder]="'DEGREES.SEARCH_PLACEHOLDER' | translate"
+            class="w-full py-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-[var(--InnoTech-primary)] transition"
+            [class.text-right]="getCurrentLanguage() === 'ar'"
+            [class.pr-10]="getCurrentLanguage() === 'ar'"
+            [class.pl-10]="getCurrentLanguage() !== 'ar'"
+            style="color: var(--InnoTech-text);"
+          >
+        </div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex justify-center gap-2 mb-12">
+        <button
+          (click)="setFilter('all')"
+          [class]="activeFilter === 'all' ? 'btn-primary' : 'btn-secondary'"
+          class="px-4 py-2 rounded font-medium transition-colors">
+          {{ 'DEGREES.FILTERS.ALL' | translate }}
+        </button>
+        <button
+          (click)="setFilter('licence')"
+          [class]="activeFilter === 'licence' ? 'btn-primary' : 'btn-secondary'"
+          class="px-4 py-2 rounded font-medium transition-colors">
+          {{ 'DEGREES.FILTERS.LICENCE' | translate }}
+        </button>
+        <button
+          (click)="setFilter('masters')"
+          [class]="activeFilter === 'masters' ? 'btn-primary' : 'btn-secondary'"
+          class="px-4 py-2 rounded font-medium transition-colors">
+          {{ 'DEGREES.FILTERS.MASTERS' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Licence Degrees Section -->
+    <div *ngIf="(activeFilter === 'all' || activeFilter === 'licence') && licenceDegrees.length > 0 && searchTerm.trim() === ''" class="mb-16">
+      <!-- Enhanced section header with long line design -->
+      <div class="flex items-center mb-12">
+        <h2 class="enhanced-section-title rtl:text-right ltr:text-left">{{ 'DEGREES.LICENCE_DEGREES' | translate }}</h2>
+        <div class="flex-1 h-0.5 ml-6 section-line" [class.mr-6]="getCurrentLanguage() === 'ar'" [class.ml-0]="getCurrentLanguage() === 'ar'"></div>
+      </div>
+
+      <!-- Responsive Grid with small gap -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 justify-items-stretch">
+        <app-degree-card
+          *ngFor="let degree of licenceDegrees; trackBy: trackByDegreeId"
+          [degree]="degree"
+          (cardClick)="onDegreeCardClick($event)"
+          >
+        </app-degree-card>
+      </div>
+    </div>
+
+    <!-- Masters Degrees Section -->
+    <div *ngIf="(activeFilter === 'all' || activeFilter === 'masters') && mastersDegrees.length > 0 && searchTerm.trim() === ''" class="mb-16">
+      <!-- Enhanced section header with long line design -->
+      <div class="flex items-center mb-12">
+        <h2 class="enhanced-section-title rtl:text-right ltr:text-left">{{ 'DEGREES.MASTERS_DEGREES' | translate }}</h2>
+        <div class="flex-1 h-0.5 ml-6 section-line" [class.mr-6]="getCurrentLanguage() === 'ar'" [class.ml-0]="getCurrentLanguage() === 'ar'"></div>
+      </div>
+
+      <!-- Responsive Grid with small gap -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 justify-items-stretch">
+        <app-degree-card
+          *ngFor="let degree of mastersDegrees; trackBy: trackByDegreeId"
+          [degree]="degree"
+          (cardClick)="onDegreeCardClick($event)"
+         >
+        </app-degree-card>
+      </div>
+    </div>
+
+    <!-- Filtered Results (when searching) -->
+    <div *ngIf="searchTerm.trim() && filteredDegrees.length > 0" class="mb-16">
+      <!-- Enhanced section header with long line design -->
+        <div class="flex items-center mb-12">
+        <h2 class="enhanced-section-title rtl:text-right ltr:text-left">{{ 'DEGREES.SEARCH_RESULTS' | translate }}</h2>
+        <div class="flex-1 h-0.5 ml-6 section-line" [class.mr-6]="getCurrentLanguage() === 'ar'" [class.ml-0]="getCurrentLanguage() === 'ar'"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 justify-items-stretch">
+        <app-degree-card
+          *ngFor="let degree of filteredDegrees; trackBy: trackByDegreeId"
+          [degree]="degree"
+          (cardClick)="onDegreeCardClick($event)"
+          >
+        </app-degree-card>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="searchTerm.trim() && filteredDegrees.length === 0" class="text-center py-12">
+      <div class="mb-4">
+        <svg class="w-16 h-16 mx-auto" style="color: var(--InnoTech-accent); opacity: 0.4;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+        </svg>
+      </div>
+      <p class="text-lg text-InnoTech">{{ 'DEGREES.NO_RESULTS' | translate }}</p>
+      <p class="text-sm mt-2" style="color: var(--InnoTech-text); opacity: 0.6;">{{ 'DEGREES.TRY_DIFFERENT_SEARCH' | translate }}</p>
+    </div>
+
+    <!-- No Data Available -->
+    <div *ngIf="!loaderService.loading() && degrees.length === 0" class="text-center py-12">
+      <div class="mb-4">
+        <svg class="w-16 h-16 mx-auto" style="color: var(--InnoTech-accent); opacity: 0.4;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+      </div>
+      <p class="text-lg text-InnoTech">{{ 'APP.NO_DATA' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Vision Statement Section - Updated to match Figma design with translations -->
+ <!--  <div class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--InnoTech-accent);">
+        {{ 'DEGREES.VISION.TITLE' | translate }}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div *ngFor="let item of visionItems; let i = index"
+             class="vision-card-figma group"
+             [style.animation-delay]="(i * 0.1) + 's'">
+
+
+          <div class="vision-icon-figma">
+            <svg class="w-12 h-12"
+                 style="color: var(--InnoTech-accent);"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    [attr.d]="item.icon">
+              </path>
+            </svg>
+          </div>
+
+
+          <h3 class="vision-title-figma">
+            {{ item.titleKey | translate }}
+          </h3>
+
+
+          <p class="vision-description-figma">
+            {{ item.descriptionKey | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

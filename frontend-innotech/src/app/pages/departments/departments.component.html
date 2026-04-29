@@ -1,0 +1,103 @@
+<!-- Loader Component -->
+<app-loader></app-loader>
+
+<div class="min-h-screen bg-white" [class.rtl]="getCurrentLanguage() === 'ar'" *ngIf="!isLoading()">
+
+  <app-page-header
+  [subtitle]="'DEPARTMENTS.EXCELLENCE_BADGE' | translate"
+  [title]="'DEPARTMENTS.HERO_TITLE' | translate"
+  [description]="'DEPARTMENTS.HERO_DESCRIPTION' | translate"
+  size="lg">
+  </app-page-header>
+
+  <!-- Departments Grid -->
+  <section class="relative py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div
+          *ngFor="let department of departments(); trackBy: trackByDepartmentId"
+          class="group relative cursor-pointer"
+          (click)="navigateToDepartment(department.id)"
+        >
+          <!-- Department Card -->
+          <div class="relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden group-hover:shadow-2xl group-hover:scale-105 transition-all duration-500">
+
+            <!-- Background Glow -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--InnoTech-primary)]/5 to-[var(--InnoTech-secondary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <!-- Image Container -->
+            <div class="relative h-64 lg:h-72 overflow-hidden">
+              <img
+                [src]="getPhotoUrl(department.cover_image)"
+                [alt]="department.name"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+
+              <!-- Overlay Gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+              <!-- Floating Icon -->
+              <div class="absolute top-6 right-6">
+                <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110  transition-all duration-300">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Department Name Overlay -->
+              <div class="absolute bottom-6 left-6 right-6">
+                <h3 class="text-2xl font-bold text-white mb-2 group-hover:translate-y-[-4px] transition-transform duration-300">
+                  {{ department.name }}
+                </h3>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative p-8">
+              <!-- Description -->
+              <p class="text-gray-600 leading-relaxed mb-6 line-clamp-2">
+                {{ department.description }}
+              </p>
+
+              <!-- Action Button -->
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-sm text-[var(--InnoTech-accent)]">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                  </svg>
+                  {{ 'DEPARTMENTS.VIEW_PROFESSORS' | translate }}
+                </div>
+
+                <div class="w-10 h-10 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Decorative Corner -->
+            <div class="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-[var(--InnoTech-primary)]/10 to-transparent rounded-br-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="departments().length === 0" class="text-center py-16">
+        <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+          {{ 'DEPARTMENTS.NO_DEPARTMENTS' | translate }}
+        </h3>
+        <p class="text-gray-600">
+          {{ 'DEPARTMENTS.NO_DEPARTMENTS_MESSAGE' | translate }}
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

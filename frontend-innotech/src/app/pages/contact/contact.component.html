@@ -1,0 +1,364 @@
+<!-- Loader Component -->
+<app-loader></app-loader>
+
+<div class="min-h-screen bg-white" [class.rtl]="getCurrentLanguage() === 'ar'" *ngIf="!isLoading()">
+
+  <!-- Hero Section with Background -->
+  <section
+    class="relative py-15 bg-gradient-to-br from-[var(--InnoTech-accent)] via-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white rounded-full blur-3xl">
+      </div>
+    </div>
+
+    <div class="relative z-10 flex items-center justify-center h-full">
+      <div class="text-center text-white max-w-4xl mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          {{ 'CONTACT.HERO_TITLE' | translate }}
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 leading-relaxed">
+          {{ 'CONTACT.HERO_SUBTITLE' | translate }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="absolute top-10 left-10 w-4 h-4 bg-white/30 rounded-full animate-bounce"></div>
+    <div class="absolute top-32 right-16 w-6 h-6 bg-white/20 rounded-full animate-pulse"></div>
+    <div class="absolute bottom-20 left-1/4 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Contact Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+
+        <!-- Contact Form Card -->
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="p-8 lg:p-12">
+            <div class="mb-8">
+              <h2 class="text-3xl font-bold text-[var(--InnoTech-accent)] mb-4">
+                {{ 'CONTACT_FORM.TITLE' | translate }}
+              </h2>
+              <p class="text-gray-600 text-lg">
+                {{ 'CONTACT_FORM.SUBTITLE' | translate }}
+              </p>
+            </div>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6"
+              [ngClass]="{ 'opacity-50 pointer-events-none': submitting }">
+
+              <!-- Name & Email Row -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2" for="name">
+                    {{ 'CONTACT_FORM.NAME' | translate }}
+                  </label>
+                  <input id="name" type="text" formControlName="name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    [placeholder]="'CONTACT_FORM.NAME_PLACEHOLDER' | translate" />
+                  <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
+                    class="text-red-500 text-sm mt-1">
+                    {{ 'VALIDATION.REQUIRED' | translate }}
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2" for="email">
+                    {{ 'CONTACT_FORM.EMAIL' | translate }}
+                  </label>
+                  <input id="email" type="email" formControlName="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    [placeholder]="'CONTACT_FORM.EMAIL_PLACEHOLDER' | translate" />
+                  <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+                    class="text-red-500 text-sm mt-1">
+                    {{ contactForm.get('email')?.errors?.['required'] ? ('VALIDATION.REQUIRED' | translate) :
+                    ('VALIDATION.INVALID_EMAIL' | translate) }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Selection -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="service">
+                  {{ 'CONTACT_FORM.SERVICE' | translate }}
+                </label>
+                <select id="service" formControlName="service"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white">
+                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
+                  <option *ngFor="let s of services" [value]="s">
+                    {{ 'CONTACT_FORM.SERVICES.' + s.toUpperCase() | translate }}
+                  </option>
+                </select>
+                <div *ngIf="contactForm.get('service')?.touched && contactForm.get('service')?.invalid"
+                  class="text-red-500 text-sm mt-1">
+                  {{ 'VALIDATION.REQUIRED' | translate }}
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="message">
+                  {{ 'CONTACT_FORM.MESSAGE' | translate }}
+                </label>
+                <textarea id="message" formControlName="message" rows="6"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white resize-none"
+                  [placeholder]="'CONTACT_FORM.MESSAGE_PLACEHOLDER' | translate"></textarea>
+                <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
+                  class="text-red-500 text-sm mt-1">
+                  <span *ngIf="contactForm.get('message')?.errors?.['required']">
+                    {{ 'VALIDATION.REQUIRED' | translate }}
+                  </span>
+                  <span *ngIf="contactForm.get('message')?.errors?.['minlength']">
+                    {{ 'VALIDATION.MIN_CHAR' | translate:{count:10} }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" [disabled]="submitting"
+                class="w-full bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3">
+                <span *ngIf="!submitting">{{ 'BUTTONS.SUBMIT' | translate }}</span>
+                <div *ngIf="submitting" class="flex items-center gap-3">
+                  <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                  <span>{{ 'BUTTONS.SENDING' | translate }}</span>
+                </div>
+              </button>
+            </form>
+
+            <!-- Additional Information Section - FILLS THE EMPTY SPACE -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+              <!-- Response Time Info -->
+              <div
+                class="bg-gradient-to-r from-[var(--InnoTech-primary)]/5 to-[var(--InnoTech-secondary)]/5 rounded-xl p-6 mb-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--InnoTech-primary)] shrink-0">                    <i class="pi pi-clock text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-[var(--InnoTech-accent)] mb-1">
+                      {{ 'CONTACT.RESPONSE_TIME_TITLE' | translate }}
+                    </h3>
+                    <p class="text-gray-600">{{ 'CONTACT.RESPONSE_TIME_DESC' | translate }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Tips -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="pi pi-check text-green-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-1">{{ 'CONTACT.TIP_1_TITLE' | translate }}</h4>
+                    <p class="text-sm text-gray-600">{{ 'CONTACT.TIP_1_DESC' | translate }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="pi pi-info-circle text-blue-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-1">{{ 'CONTACT.TIP_2_TITLE' | translate }}</h4>
+                    <p class="text-sm text-gray-600">{{ 'CONTACT.TIP_2_DESC' | translate }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="pi pi-key text-purple-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-1">{{ 'CONTACT.TIP_3_TITLE' | translate }}</h4>
+                    <p class="text-sm text-gray-600">{{ 'CONTACT.TIP_3_DESC' | translate }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="pi pi-phone text-orange-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-1">{{ 'CONTACT.TIP_4_TITLE' | translate }}</h4>
+                    <p class="text-sm text-gray-600">{{ 'CONTACT.TIP_4_DESC' | translate }}</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info & Map Card -->
+        <div class="space-y-8">
+
+          <!-- Contact Information -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h3 class="text-2xl font-bold text-[var(--InnoTech-accent)] mb-6">
+              {{ 'CONTACT.GET_IN_TOUCH' | translate }}
+            </h3>
+
+            <div class="space-y-6">
+              <!-- Address -->
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-[var(--InnoTech-primary)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-map-marker text-[var(--InnoTech-primary)] text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">{{ 'CONTACT.ADDRESS_TITLE' | translate }}</h4>
+                  <p class="text-gray-600">{{ 'CONTACT.ADDRESS' | translate }}</p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-[var(--InnoTech-primary)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-phone text-[var(--InnoTech-primary)] text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">{{ 'CONTACT.PHONE_TITLE' | translate }}</h4>
+                  <a href="tel:+33123456789" class="text-gray-600 hover:text-[var(--InnoTech-primary)] transition-colors">
+                    {{ 'CONTACT.PHONE' | translate }}
+                  </a>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-[var(--InnoTech-primary)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-envelope text-[var(--InnoTech-primary)] text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">{{ 'CONTACT.EMAIL_TITLE' | translate }}</h4>
+                  <a href="mailto:contact@InnoTech-university.fr"
+                    class="text-gray-600 hover:text-[var(--InnoTech-primary)] transition-colors">
+                    {{ 'CONTACT.EMAIL' | translate }}
+                  </a>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-[var(--InnoTech-primary)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-clock text-[var(--InnoTech-primary)] text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">{{ 'CONTACT.HOURS_TITLE' | translate }}</h4>
+                  <div class="text-gray-600 space-y-1">
+                    <p>{{ 'CONTACT.HOURS_WEEKDAYS' | translate }}</p>
+                    <p>{{ 'CONTACT.HOURS_WEEKEND' | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Card -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden ">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-[var(--InnoTech-accent)] mb-4">
+                {{ 'CONTACT.FIND_US' | translate }}
+              </h3>
+              <p class="text-gray-600 mb-4">
+                {{ 'CONTACT.MAP_DESCRIPTION' | translate }}
+              </p>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="h-64 w-full">
+              <iframe class="w-full h-full rounded-b-2xl border-0" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.6394183764405!2d10.7439479!3d34.764675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301d3a3af95894f%3A0xac8996f456d2e710!2sInnoTech%20University!5e0!3m2!1sen!2stn!4v1752768522062!5m2!1sen!2stn"></iframe>
+            </div>
+
+
+            <div class="p-6">
+              <a href="https://maps.app.goo.gl/qCkjJQjNWa3K5s226" target="_blank" rel="noopener noreferrer">
+                <button
+                  class="w-full bg-[var(--InnoTech-primary)] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[var(--InnoTech-secondary)] transition-colors duration-200">
+                  {{ 'CONTACT.GET_DIRECTIONS' | translate }}
+                </button>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Social Media & Connect Section -->
+      <div
+        class="bg-gradient-to-r from-[var(--InnoTech-accent)] to-[var(--InnoTech-primary)] rounded-3xl p-12 text-center text-white">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {{ 'CONTACT.CONNECT_WITH_US' | translate }}
+          </h2>
+          <p class="text-xl opacity-90 mb-12">
+            {{ 'CONTACT.SOCIAL_SUBTITLE' | translate }}
+          </p>
+
+          <!-- Social Media Links -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+
+            <!-- Facebook -->
+            <a href="https://facebook.com/InnoTechuniversity" target="_blank"
+              class="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div
+                class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="pi pi-facebook text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Facebook</h3>
+              <p class="text-sm opacity-80">{{ 'CONTACT.FACEBOOK_FOLLOWERS' | translate }}</p>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/InnoTechuniversity" target="_blank"
+              class="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="pi pi-instagram text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Instagram</h3>
+              <p class="text-sm opacity-80">{{ 'CONTACT.INSTAGRAM_FOLLOWERS' | translate }}</p>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/school/InnoTech-university" target="_blank"
+              class="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div
+                class="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="pi pi-linkedin text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">LinkedIn</h3>
+              <p class="text-sm opacity-80">{{ 'CONTACT.LINKEDIN_FOLLOWERS' | translate }}</p>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com/@InnoTechuniversity" target="_blank"
+              class="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div
+                class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="pi pi-youtube text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">YouTube</h3>
+              <p class="text-sm opacity-80">{{ 'CONTACT.YOUTUBE_SUBSCRIBERS' | translate }}</p>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

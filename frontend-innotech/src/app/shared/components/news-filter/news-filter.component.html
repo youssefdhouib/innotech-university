@@ -1,0 +1,64 @@
+<div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+  <div class="flex flex-col lg:flex-row gap-6 items-center">
+
+    <!-- Search Input -->
+    <div class="flex-1 w-full lg:w-auto">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input
+          type="text"
+          [placeholder]="'NEWS.SEARCH_PLACEHOLDER' | translate"
+          [(ngModel)]="searchTerm"
+          (input)="onSearchChange()"
+          class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-[var(--InnoTech-primary)] focus:border-[var(--InnoTech-primary)] transition-all duration-300"
+        />
+
+        <!-- Clear Search Button -->
+        <button
+          *ngIf="searchTerm"
+          (click)="clearSearch()"
+          class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="flex flex-wrap gap-3">
+      <button
+        *ngFor="let category of categories"
+        (click)="selectCategory(category.value)"
+        [class]="getCategoryButtonClass(category.value)"
+        class="px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2"
+      >
+        <i [class]="category.icon" class="w-4 h-4"></i>
+        {{ category.label | translate }}
+        <span
+          *ngIf="category.count > 0"
+          class="ml-1 px-2 py-0.5 bg-white/20 rounded-full text-xs"
+        >
+          {{ category.count }}
+        </span>
+      </button>
+    </div>
+
+    <!-- Reset Filters Button -->
+    <button
+      *ngIf="hasActiveFilters()"
+      (click)="resetFilters()"
+      class="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors duration-300 flex items-center gap-2"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+      </svg>
+      {{ 'NEWS.RESET_FILTERS' | translate }}
+    </button>
+  </div>
+</div>

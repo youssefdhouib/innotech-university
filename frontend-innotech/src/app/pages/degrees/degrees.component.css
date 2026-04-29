@@ -1,0 +1,183 @@
+/* Import modern fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* Enhanced section title styling */
+.enhanced-section-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 1.8rem;
+  color: var(--InnoTech-accent);
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.025em; /* Tight letter spacing */
+  line-height: 1.2;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Enhanced section line */
+.section-line {
+  background: linear-gradient(90deg, var(--InnoTech-accent) 0%, rgba(0, 77, 152, 0.3) 100%);
+  height: 2px;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the entire section header */
+.enhanced-section-title:hover + .section-line {
+  background: linear-gradient(90deg, var(--InnoTech-accent) 0%, rgba(0, 77, 152, 0.6) 100%);
+  height: 3px;
+}
+
+/* Ensure proper spacing and layout */
+.grid {
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 2rem;
+  }
+}
+
+/* Figma-style Vision Cards */
+.vision-card-figma {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 77, 152, 0.08);
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vision-card-figma:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 77, 152, 0.12);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Figma-style Icon */
+.vision-icon-figma {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(0, 77, 152, 0.08);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.vision-card-figma:hover .vision-icon-figma {
+  background: rgba(0, 77, 152, 0.12);
+  transform: scale(1.05);
+}
+
+/* Figma-style Title */
+.vision-title-figma {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--InnoTech-accent);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.vision-card-figma:hover .vision-title-figma {
+  color: #0ea5e9;
+}
+
+/* Figma-style Description */
+.vision-description-figma {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .enhanced-section-title {
+    font-size: 2.25rem; /* 36px */
+  }
+
+  .vision-card-figma {
+    min-height: 180px;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .enhanced-section-title {
+    font-size: 2rem; /* 32px */
+  }
+
+  .vision-card-figma {
+    min-height: 160px;
+    padding: 1.25rem 1rem;
+  }
+
+  .vision-icon-figma {
+    width: 70px;
+    height: 70px;
+  }
+
+  .vision-title-figma {
+    font-size: 1rem;
+  }
+
+  .vision-description-figma {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enhanced-section-title {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+/* RTL support */
+.rtl .section-line {
+  background: linear-gradient(270deg, var(--InnoTech-accent) 0%, rgba(0, 77, 152, 0.3) 100%);
+}
+
+.rtl .enhanced-section-title:hover + .section-line {
+  background: linear-gradient(270deg, var(--InnoTech-accent) 0%, rgba(0, 77, 152, 0.6) 100%);
+}
+
+/* Animation for section headers */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enhanced-section-title {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.section-line {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Vision cards animation */
+.vision-card-figma {
+  animation: fadeInUp 0.6s ease-out both;
+}

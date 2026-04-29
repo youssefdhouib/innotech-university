@@ -1,0 +1,170 @@
+<footer class="bg-gradient-to-br from-[var(--InnoTech-accent)] to-[#003366] text-white mt-auto">
+  <!-- Main Footer Content -->
+  <div class="relative pt-16 pb-8">
+    <!-- Top gradient line -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- University Info Section -->
+        <div class="mb-8">
+          <div class="flex items-center gap-4 mb-6">
+            <img
+              src="/assets/logo.png"
+              alt="InnoTech University"
+              class="h-15 w-auto rounded-3xl"
+            />
+            <div class="flex-1">
+              <h3 class="text-2xl font-extrabold text-white mb-1 leading-tight">{{ 'APP.TITLE' | translate }}</h3>
+            </div>
+          </div>
+
+          <p class="text-[15px] leading-relaxed text-white/80 mb-8">
+            {{ 'FOOTER.DESCRIPTION' | translate }}
+          </p>
+
+          <!-- Social Media Links -->
+          <div class="mt-8">
+            <h4 class="text-base font-semibold text-white mb-4">{{ 'FOOTER.FOLLOW_US' | translate }}</h4>
+            <div class="flex gap-3 flex-wrap">
+              <button
+                *ngFor="let social of socialLinks"
+                class="w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm hover:bg-[var(--InnoTech-secondary)] hover:border-[var(--InnoTech-secondary)] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,196,179,0.3)]"
+                [title]="social.name"
+                (click)="openSocialLink(social.url)">
+                <i [class]="social.icon" class="text-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mb-8">
+          <h4 class="text-xl font-bold text-white mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--InnoTech-secondary)] after:rounded-sm">{{ 'FOOTER.QUICK_LINKS' | translate }}</h4>
+          <ul class="list-none p-0 m-0">
+            <li *ngFor="let link of quickLinks" class="mb-3">
+              <button
+                (click)="navigateToRoute(link.route)"
+                class="flex items-center gap-2 text-white/80 text-sm transition-all duration-300 py-1 hover:text-[var(--InnoTech-secondary)] hover:translate-x-1 bg-transparent border-none cursor-pointer w-full text-left">
+                <i [class]="link.icon" class="text-sm w-4 opacity-70"></i>
+                <span>{{ link.label | translate }}</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Students Life -->
+        <div class="mb-8">
+          <h4 class="text-xl font-bold text-white mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--InnoTech-secondary)] after:rounded-sm">{{ 'FOOTER.STUDENTS_SERVICES.TITLE' | translate }}</h4>
+          <ul class="list-none p-0 m-0">
+            <li *ngFor="let link of studentsServices" class="mb-3">
+              <button
+                (click)="navigateToRoute(link.route)"
+                class="flex items-center gap-2 text-white/80 text-sm transition-all duration-300 py-1 hover:text-[var(--InnoTech-secondary)] hover:translate-x-1 bg-transparent border-none cursor-pointer w-full text-left">
+                <i [class]="link.icon" class="text-sm w-4 opacity-70"></i>
+                  <span>{{ link.label | translate }}</span>
+              </button>
+            </li>
+          </ul>
+
+
+        </div>
+
+        <!-- Contact & Location -->
+        <div class="mb-8">
+          <h4 class="text-xl font-bold text-white mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--InnoTech-secondary)] after:rounded-sm">{{ 'FOOTER.CONTACT_INFO' | translate }}</h4>
+
+          <!-- Address -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="pi pi-map-marker text-lg text-[var(--InnoTech-secondary)]"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm leading-relaxed text-white/80 m-0">
+                {{ contactInfo.address.street }}<br>
+                {{ contactInfo.address.city }}<br>
+                {{ contactInfo.address.state }}<br>
+                {{ contactInfo.address.country }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="pi pi-phone text-lg text-[var(--InnoTech-secondary)]"></i>
+            </div>
+            <div class="flex-1">
+              <a href="tel:{{ contactInfo.phone }}" class="text-white/80 no-underline text-sm transition-colors duration-300 hover:text-[var(--InnoTech-secondary)]">
+                {{ contactInfo.phone }}
+              </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="pi pi-envelope text-lg text-[var(--InnoTech-secondary)]"></i>
+            </div>
+            <div class="flex-1">
+              <a href="mailto:{{ contactInfo.email }}" class="text-white/80 no-underline text-sm transition-colors duration-300 hover:text-[var(--InnoTech-secondary)]">
+                {{ contactInfo.email }}
+              </a>
+            </div>
+          </div>
+          <!-- Contact Us CTA -->
+          <div class="mt-6">
+            <button
+              (click)="navigateToRoute('/contact')"
+              class="cursor-pointer w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-[var(--InnoTech-secondary)] hover:bg-[var(--InnoTech-primary)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+              <i class="pi pi-send text-base"></i>
+              <span>{{ 'FOOTER.CONTACT_US' | translate }}</span>
+            </button>
+          </div>
+
+
+          <!-- Mini Map -->
+          <!-- <div class="mt-8">
+            <button class="w-full h-30 border-2 border-white/20 rounded-xl bg-white/5 cursor-pointer transition-all duration-300 backdrop-blur-sm hover:border-[var(--InnoTech-secondary)] hover:bg-[var(--InnoTech-secondary)]/10 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,196,179,0.2)]" (click)="openMap()">
+              <div class="flex flex-col items-center justify-center h-full gap-2">
+                <i class="pi pi-map text-3xl text-[var(--InnoTech-secondary)]"></i>
+                <span class="text-sm font-medium text-white">{{ 'FOOTER.VIEW_MAP' | translate }}</span>
+              </div>
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="bg-black/20 border-t border-white/10 py-6">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex-1">
+          <p class="text-[13px] text-white/70 m-0">
+            © {{ currentYear }} {{ 'APP.TITLE' | translate }}. {{ 'FOOTER.COPYRIGHT' | translate }}
+          </p>
+        </div>
+
+        <div class="flex-1 text-center">
+          <div class="flex items-center justify-center gap-4 flex-wrap lg:flex-nowrap">
+            <button (click)="navigateToExternalRoute('/privacy')" class="text-white/70 text-[13px] transition-colors duration-300 hover:text-[var(--InnoTech-secondary)] bg-transparent border-none cursor-pointer whitespace-nowrap">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</button>
+            <span class="text-white/30 text-xs">|</span>
+            <button (click)="navigateToExternalRoute('/terms')" class="text-white/70 text-[13px] transition-colors duration-300 hover:text-[var(--InnoTech-secondary)] bg-transparent border-none cursor-pointer whitespace-nowrap">{{ 'FOOTER.TERMS_OF_USE' | translate }}</button>
+            <span class="text-white/30 text-xs">|</span>
+            <button (click)="navigateToExternalRoute('/accessibility')" class="text-white/70 text-[13px] transition-colors duration-300 hover:text-[var(--InnoTech-secondary)] bg-transparent border-none cursor-pointer whitespace-nowrap">{{ 'FOOTER.ACCESSIBILITY' | translate }}</button>
+          </div>
+        </div>
+
+        <div class="flex-1 text-right">
+          <button class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white cursor-pointer transition-all duration-300 text-[13px] hover:bg-[var(--InnoTech-secondary)] hover:border-[var(--InnoTech-secondary)] hover:-translate-y-0.5" (click)="scrollToTop()" title="{{ 'FOOTER.BACK_TO_TOP' | translate }}">
+            <i class="pi pi-chevron-up"></i>
+            <span class="font-medium">{{ 'FOOTER.BACK_TO_TOP' | translate }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

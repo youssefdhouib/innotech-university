@@ -1,0 +1,270 @@
+<div class="max-w-4xl w-full mx-auto my-12 p-6 md:p-10 bg-[var(--InnoTech-white)] rounded-md shadow-xl space-y-6">
+
+  <!-- Title and Description -->
+  <h1 class="text-[var(--InnoTech-primary)] text-2xl md:text-3xl font-bold">
+    {{ 'FORM.TITLE' | translate }}
+  </h1>
+  <p class="text-[var(--InnoTech-text)]">
+    {{ 'FORM.DESCRIPTION' | translate }}
+  </p>
+
+  <form [formGroup]="preinscriptionForm" (ngSubmit)="onSubmit()" class="space-y-4"
+    [ngClass]="{ 'opacity-50 pointer-events-none': submitting }">
+
+    <!-- Personal Information -->
+    <div>
+      <h2 class="text-[var(--InnoTech-accent)] text-xl font-semibold mb-2">{{ 'FORM.PERSONAL_INFO' | translate }}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- First Name -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="first_name">{{ 'FORM.FIRST_NAME' | translate }} *</label>
+          <input id="first_name" type="text" formControlName="first_name"
+            [attr.aria-label]="'FORM.FIRST_NAME' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['first_name'].touched && f['first_name'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="last_name">{{ 'FORM.LAST_NAME' | translate }} *</label>
+          <input id="last_name" type="text" formControlName="last_name" [attr.aria-label]="'FORM.LAST_NAME' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['last_name'].touched && f['last_name'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="email">{{ 'FORM.EMAIL' | translate }} *</label>
+          <input id="email" type="email" formControlName="email" [attr.aria-label]="'FORM.EMAIL' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.INVALID_EMAIL' | translate }}
+          </div>
+        </div>
+
+        <!-- First Name Arabic -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="first_name_ar">{{ 'FORM.FIRST_NAME_AR' | translate }}
+            *</label>
+          <input id="first_name_ar" type="text" formControlName="first_name_ar"
+            [attr.aria-label]="'FORM.FIRST_NAME_AR' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['first_name_ar'].touched && f['first_name_ar'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Last Name Arabic -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="last_name_ar">{{ 'FORM.LAST_NAME_AR' | translate }}
+            *</label>
+          <input id="last_name_ar" type="text" formControlName="last_name_ar"
+            [attr.aria-label]="'FORM.LAST_NAME_AR' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['last_name_ar'].touched && f['last_name_ar'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Birth Date -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="birth_date">{{ 'FORM.BIRTH_DATE' | translate }} *</label>
+          <input id="birth_date" type="date" formControlName="birth_date"
+            [attr.aria-label]="'FORM.BIRTH_DATE' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['birth_date'].touched && f['birth_date'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Gender -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="gender">{{ 'FORM.GENDER' | translate }} *</label>
+          <select id="gender" formControlName="gender" [attr.aria-label]="'FORM.GENDER' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2">
+            <option value="">{{ 'FORM.SELECT' | translate }}</option>
+            <option *ngFor="let gender of genders" [value]="gender.value">
+              {{ 'GENDER.' + gender.label | translate }}
+            </option>
+          </select>
+          <div *ngIf="f['gender'].touched && f['gender'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="country">{{ 'FORM.COUNTRY' | translate }} *</label>
+          <select id="country" formControlName="country" [attr.aria-label]="'FORM.COUNTRY' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2 bg-white text-[var(--InnoTech-text)]">
+            <option value="">{{ 'FORM.SELECT_COUNTRY' | translate }}</option>
+            <option value="tunisia">{{ 'COUNTRIES.TUNISIA' | translate }}</option>
+            <option value="algeria">{{ 'COUNTRIES.ALGERIA' | translate }}</option>
+            <option value="libya">{{ 'COUNTRIES.LIBYA' | translate }}</option>
+            <option value="morocco">{{ 'COUNTRIES.MOROCCO' | translate }}</option>
+            <option value="egypt">{{ 'COUNTRIES.EGYPT' | translate }}</option>
+          </select>
+          <div *ngIf="f['country'].touched && f['country'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- IDENTIFICATION INFORMATION -->
+    <div>
+      <h2 class="text-[var(--InnoTech-accent)] text-xl font-semibold mb-2">{{ 'FORM.IDENTIFICATION_INFO' | translate }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- CIN -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="cin">{{ 'FORM.CIN' | translate }} *</label>
+          <input [maxlength]="8" id="cin" type="text" formControlName="cin" [attr.aria-label]="'FORM.CIN' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['cin'].touched && f['cin'].invalid" class="text-red-600 text-sm">
+            <div *ngIf="f['cin'].errors?.['required']">
+              {{ 'VALIDATION.REQUIRED' | translate }}
+            </div>
+            <div *ngIf="f['cin'].errors?.['pattern']">
+              {{ 'VALIDATION.CIN_PATTERN' | translate }}
+            </div>
+          </div>
+        </div>
+        <!-- Passport -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="passport">{{ 'FORM.PASSPORT' | translate }}</label>
+          <input id="passport" type="text" formControlName="passport" [attr.aria-label]="'FORM.PASSPORT' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ACADEMIC INFORMATION -->
+    <div>
+      <h2 class="text-[var(--InnoTech-accent)] text-xl font-semibold mb-2">{{ 'FORM.ACADEMIC_INFO' | translate }}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Desired Degree -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="desired_degree_id">{{ 'FORM.DESIRED_DEGREE' | translate }}
+            *</label>
+          <select id="desired_degree_id" formControlName="desired_degree_id"
+            [attr.aria-label]="'FORM.DESIRED_DEGREE' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2">
+            <optgroup label="Licence">
+              <option *ngFor="let degree of licenceDegrees" [value]="degree.id">
+                {{ degree.name }}
+              </option>
+            </optgroup>
+            <optgroup label="Mastère">
+              <option *ngFor="let degree of mastereDegrees" [value]="degree.id">
+                {{ degree.name }}
+              </option>
+            </optgroup>
+          </select>
+          <div *ngIf="f['desired_degree_id'].touched && f['desired_degree_id'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Previous Degree -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="previous_degree">{{ 'FORM.PREVIOUS_DEGREE' | translate
+            }} *</label>
+          <input id="previous_degree" type="text" formControlName="previous_degree"
+            [attr.aria-label]="'FORM.PREVIOUS_DEGREE' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+            <div *ngIf="f['previous_degree'].touched && f['previous_degree'].invalid" class="text-red-600 text-sm">
+              <div *ngIf="f['previous_degree'].errors?.['required']">
+                {{ 'VALIDATION.REQUIRED' | translate }}
+              </div>
+            </div>
+        </div>
+
+        <!-- Graduation Year -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="graduation_year">{{ 'FORM.GRADUATION_YEAR' | translate
+            }} *</label>
+          <input id="graduation_year" type="text" formControlName="graduation_year"
+            [attr.aria-label]="'FORM.GRADUATION_YEAR' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['graduation_year'].touched && f['graduation_year'].invalid" class="text-red-600 text-sm">
+            <div *ngIf="f['graduation_year'].errors?.['required']">
+              {{ 'VALIDATION.REQUIRED' | translate }}
+            </div>
+            <div *ngIf="f['graduation_year'].errors?.['pattern']">
+              {{ 'VALIDATION.YEAR_INVALID_FORMAT' | translate }}
+            </div>
+            <div *ngIf="f['graduation_year'].errors?.['min'] || f['graduation_year'].errors?.['max']">
+              {{ 'VALIDATION.YEAR_OUT_OF_RANGE' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT INFORMATION -->
+    <div>
+      <h2 class="text-[var(--InnoTech-accent)] text-xl font-semibold mb-2">{{ 'FORM.CONTACT_INFO' | translate }}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Address -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="address">{{ 'FORM.ADDRESS' | translate }} *</label>
+          <input id="address" type="text" formControlName="address" [attr.aria-label]="'FORM.ADDRESS' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['address'].touched && f['address'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="phone">{{ 'FORM.PHONE' | translate }} *</label>
+          <input id="phone" type="text" formControlName="phone" [attr.aria-label]="'FORM.PHONE' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+          <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
+            {{ 'VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+
+        <!-- How did you hear -->
+        <div>
+          <label class="block text-[var(--InnoTech-text)]" for="how_did_you_hear">{{ 'FORM.HOW_DID_YOU_HEAR' | translate
+            }}</label>
+          <input id="how_did_you_hear" type="text" formControlName="how_did_you_hear"
+            [attr.aria-label]="'FORM.HOW_DID_YOU_HEAR' | translate"
+            class="w-full border border-[var(--InnoTech-accent)] rounded-md px-4 py-2" />
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" [disabled]="submitting" [attr.aria-label]="'FORM.SUBMIT' | translate"
+      class="w-full md:w-auto bg-[var(--InnoTech-primary)] hover:bg-[var(--InnoTech-secondary)] text-[var(--InnoTech-white)] font-semibold px-6 py-3 rounded-md flex items-center justify-center">
+      <span *ngIf="!submitting">{{ 'FORM.SUBMIT' | translate }}</span>
+      <svg *ngIf="submitting" class="animate-spin h-5 w-5 text-[var(--InnoTech-white)] ml-2"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+    </button>
+  </form>
+
+  <!-- SUCCESS MODAL -->
+  <div *ngIf="showSuccessModal"
+    class="fixed inset-0 flex items-center justify-center bg-[var(--InnoTech-white)] bg-opacity-70 z-50 transition-opacity duration-300">
+    <div
+      class="bg-[var(--InnoTech-white)] border-t-8 border-[var(--InnoTech-primary)] text-[var(--InnoTech-accent)] rounded-lg p-6 w-80 text-center shadow-lg animate-fade-in-up">
+      <svg class="mx-auto mb-2 h-10 w-10 text-[var(--InnoTech-primary)]" fill="none" stroke="currentColor"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <p class="text-lg font-semibold">{{ successMessage || ('TOAST.SUCCESS' | translate) }}</p>
+    </div>
+  </div>
+
+</div>

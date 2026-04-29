@@ -1,0 +1,265 @@
+<!-- Modern Signal-based Loader -->
+<app-loader></app-loader>
+
+<div class="professors-page" *ngIf="!loaderService.loading()">
+
+
+  <app-page-header
+  [subtitle]="'PROFESSORS.HERO.SUBTITLE' | translate"
+  [title]="'PROFESSORS.HERO.TITLE' | translate"
+  [description]="'PROFESSORS.HERO.DESCRIPTION' | translate"
+  size="lg"
+></app-page-header>
+
+
+  <!-- Enhanced Search and Filters Section -->
+  <section class="filters-section relative py-12 bg-white overflow-hidden">
+    <!-- Background Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-10 right-20 w-28 h-28 bg-gradient-to-br from-[var(--InnoTech-primary)]/5 to-[var(--InnoTech-secondary)]/5 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-10 left-20 w-20 h-20 bg-gradient-to-br from-[var(--InnoTech-accent)]/5 to-[var(--InnoTech-primary)]/5 rounded-full blur-xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Filters Card -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 p-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Search Input -->
+          <div class="lg:col-span-2">
+            <label class="block text-sm font-semibold text-[var(--InnoTech-accent)] mb-2">
+              {{ 'PROFESSORS.FILTERS.SEARCH' | translate }}
+            </label>
+            <div class="relative">
+              <input
+                type="text"
+                [value]="searchTerm"
+                (input)="onSearchChange($any($event.target).value)"
+                [placeholder]="'PROFESSORS.FILTERS.SEARCH_PLACEHOLDER' | translate"
+                class="w-full px-4 py-3 pl-12 border-2 border-[var(--InnoTech-primary)]/20 rounded-xl bg-white/90 text-[var(--InnoTech-text)] placeholder-gray-400 focus:outline-none focus:border-[var(--InnoTech-primary)] focus:ring-2 focus:ring-[var(--InnoTech-primary)]/20 transition-all duration-300"
+              />
+              <i class="pi pi-search absolute left-4 top-1/2 transform -translate-y-1/2 text-[var(--InnoTech-primary)]"></i>
+            </div>
+          </div>
+
+          <!-- Department Filter -->
+          <div>
+            <label class="block text-sm font-semibold text-[var(--InnoTech-accent)] mb-2">
+              {{ 'PROFESSORS.FILTERS.DEPARTMENT' | translate }}
+            </label>
+            <select
+              [(ngModel)]="selectedDepartment"
+              (change)="onFilterChange()"
+              class="w-full px-4 py-3 border-2 border-[var(--InnoTech-primary)]/20 rounded-xl bg-white/90 text-[var(--InnoTech-text)] focus:outline-none focus:border-[var(--InnoTech-primary)] focus:ring-2 focus:ring-[var(--InnoTech-primary)]/20 transition-all duration-300"
+            >
+              <option value="">{{ 'PROFESSORS.FILTERS.ALL_DEPARTMENTS' | translate }}</option>
+              <option *ngFor="let department of departments" [value]="department.id">
+                {{ department.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Speciality Filter -->
+          <div>
+            <label class="block text-sm font-semibold text-[var(--InnoTech-accent)] mb-2">
+              {{ 'PROFESSORS.FILTERS.SPECIALITY' | translate }}
+            </label>
+            <select
+              [(ngModel)]="selectedSpeciality"
+              (change)="onFilterChange()"
+              class="w-full px-4 py-3 border-2 border-[var(--InnoTech-primary)]/20 rounded-xl bg-white/90 text-[var(--InnoTech-text)] focus:outline-none focus:border-[var(--InnoTech-primary)] focus:ring-2 focus:ring-[var(--InnoTech-primary)]/20 transition-all duration-300"
+            >
+              <option value="">{{ 'PROFESSORS.FILTERS.ALL_SPECIALITIES' | translate }}</option>
+              <option *ngFor="let speciality of specialities" [value]="speciality">
+                {{ speciality }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Grade Filter -->
+          <div>
+            <label class="block text-sm font-semibold text-[var(--InnoTech-accent)] mb-2">
+              {{ 'PROFESSORS.FILTERS.GRADE' | translate }}
+            </label>
+            <select
+              [(ngModel)]="selectedGrade"
+              (change)="onFilterChange()"
+              class="w-full px-4 py-3 border-2 border-[var(--InnoTech-primary)]/20 rounded-xl bg-white/90 text-[var(--InnoTech-text)] focus:outline-none focus:border-[var(--InnoTech-primary)] focus:ring-2 focus:ring-[var(--InnoTech-primary)]/20 transition-all duration-300"
+            >
+              <option value="">{{ 'PROFESSORS.FILTERS.ALL_GRADES' | translate }}</option>
+              <option *ngFor="let grade of grades" [value]="grade">
+                {{ grade }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Clear Filters Button -->
+        <div class="flex justify-center mt-6">
+          <button
+            (click)="clearFilters()"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            <i class="pi pi-refresh"></i>
+            <span>{{ 'PROFESSORS.FILTERS.CLEAR' | translate }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Count -->
+      <div class="text-center ">
+        <p class="text-lg text-[var(--InnoTech-text)]">
+          {{ 'PROFESSORS.RESULTS_COUNT' | translate: {count: filteredProfessors.length, total: professors.length} }}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Professors Grid Section -->
+  <section class="professors-grid-section relative py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+    <!-- Background Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-16 w-36 h-36 bg-gradient-to-br from-[var(--InnoTech-primary)]/5 to-[var(--InnoTech-secondary)]/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-[var(--InnoTech-accent)]/5 to-[var(--InnoTech-primary)]/5 rounded-full blur-2xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Professors Grid - Bigger Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" *ngIf="filteredProfessors.length > 0">
+        <div
+          *ngFor="let professor of filteredProfessors; let i = index"
+          class="professor-card group bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-700 hover:scale-105 cursor-pointer"
+          (click)="viewProfessorDetails(professor)"
+          [style.animation-delay]="i * 100 + 'ms'"
+        >
+          <!-- Background Glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[var(--InnoTech-primary)]/5 to-[var(--InnoTech-secondary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <!-- Professor Image -->
+          <div class="relative overflow-hidden">
+            <img
+              [src]="getPhotoUrl(professor.photo_url)"
+              [alt]="professor.first_name + ' ' + professor.last_name"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+
+            <!-- Image Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <!-- Grade Badge -->
+            <div class="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
+              <span class="text-sm font-bold text-[var(--InnoTech-accent)]">{{ professor.grade }}</span>
+            </div>
+
+            <!-- Department Tag -->
+<!--             <div class="absolute top-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div class="bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white px-4 py-2 rounded-full text-sm font-semibold">
+                {{ getDepartmentName(professor.department_id) }}
+              </div>
+            </div> -->
+
+            <!-- Quick Actions Overlay -->
+            <div class="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div class="flex items-center justify-between">
+                <button class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm text-[var(--InnoTech-accent)] rounded-full font-semibold text-sm hover:bg-white transition-all duration-300">
+                  <i class="pi pi-eye"></i>
+                  <span>{{ 'PROFESSORS.VIEW_PROFILE' | translate }}</span>
+                </button>
+
+                <button class="flex items-center gap-1 px-3 py-2 bg-white/90 backdrop-blur-sm text-[var(--InnoTech-accent)] rounded-full hover:bg-white transition-all duration-300">
+                  <i class="pi pi-download text-sm"></i>
+                  <span class="text-xs font-medium">CV</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhanced Content Section -->
+          <div class="p-8 relative z-10">
+            <!-- Name and Title -->
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-[var(--InnoTech-accent)] mb-2 group-hover:text-[var(--InnoTech-primary)] transition-colors duration-300">
+                {{ professor.first_name }} {{ professor.last_name }}
+              </h3>
+
+              <!-- Speciality with Icon -->
+              <div class="flex items-center gap-2 mb-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-[var(--InnoTech-primary)]/10 to-[var(--InnoTech-secondary)]/10 rounded-full flex items-center justify-center">
+                  <i class="pi pi-star text-[var(--InnoTech-primary)] text-sm"></i>
+                </div>
+                <span class="text-[var(--InnoTech-primary)] font-semibold">{{ professor.speciality }}</span>
+              </div>
+            </div>
+
+            <!-- Contact and Department Info -->
+            <div class="space-y-4 mb-6">
+              <!-- Email -->
+              <div class="flex items-center gap-3 text-sm text-gray-600">
+                <div class="w-8 h-8 bg-gradient-to-br from-[var(--InnoTech-secondary)]/10 to-[var(--InnoTech-primary)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-envelope text-[var(--InnoTech-secondary)] text-xs"></i>
+                </div>
+                <span class="truncate">{{ professor.email }}</span>
+              </div>
+
+              <!-- Department -->
+              <div class="flex items-center gap-3 text-sm text-gray-600">
+                <div class="w-8 h-8 bg-gradient-to-br from-[var(--InnoTech-accent)]/10 to-[var(--InnoTech-secondary)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-building text-[var(--InnoTech-accent)] text-xs"></i>
+                </div>
+                <span>{{ getDepartmentName(professor.department_id) }}</span>
+              </div>
+
+              <!-- Academic Grade -->
+ <!--              <div class="flex items-center gap-3 text-sm text-gray-600">
+                <div class="w-8 h-8 bg-gradient-to-br from-[var(--InnoTech-primary)]/10 to-[var(--InnoTech-accent)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="pi pi-graduation-cap text-[var(--InnoTech-primary)] text-xs"></i>
+                </div>
+                <span>{{ professor.grade }}</span>
+              </div> -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+              <button class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300">
+                <i class="pi pi-user"></i>
+                <span>{{ 'PROFESSORS.VIEW_PROFILE' | translate }}</span>
+              </button>
+
+              <button class="px-4 py-3 bg-white border-2 border-[var(--InnoTech-primary)]/20 text-[var(--InnoTech-primary)] rounded-xl hover:bg-[var(--InnoTech-primary)] hover:text-white hover:border-[var(--InnoTech-primary)] transition-all duration-300">
+                <i class="pi pi-envelope"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Decorative Corner Elements -->
+          <div class="absolute top-8 right-8 w-16 h-16 bg-gradient-to-br from-[var(--InnoTech-primary)]/20 to-[var(--InnoTech-secondary)]/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute bottom-8 left-8 w-12 h-12 bg-gradient-to-br from-[var(--InnoTech-secondary)]/20 to-[var(--InnoTech-accent)]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+      </div>
+
+      <!-- No Results State -->
+      <div *ngIf="filteredProfessors.length === 0" class="text-center py-16">
+        <div class="max-w-md mx-auto">
+          <div class="w-24 h-24 bg-gradient-to-br from-[var(--InnoTech-primary)]/10 to-[var(--InnoTech-secondary)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="pi pi-search text-4xl text-[var(--InnoTech-primary)]"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-[var(--InnoTech-accent)] mb-4">
+            {{ 'PROFESSORS.NO_RESULTS.TITLE' | translate }}
+          </h3>
+          <p class="text-gray-600 mb-6">
+            {{ 'PROFESSORS.NO_RESULTS.MESSAGE' | translate }}
+          </p>
+          <button
+            (click)="clearFilters()"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            <i class="pi pi-refresh"></i>
+            <span>{{ 'PROFESSORS.NO_RESULTS.CLEAR_FILTERS' | translate }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Toast Messages -->
+<!-- <p-toast></p-toast> -->

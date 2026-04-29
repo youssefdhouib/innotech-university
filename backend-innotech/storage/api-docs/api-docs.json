@@ -1,0 +1,1593 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "InnoTech Preinscription API",
+        "description": "Documentation for the InnoTech University APIS ",
+        "contact": {
+            "name": "Université InnoTech",
+            "email": "admissions@InnoTech-university.tn"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/formulaires/confirm-preinscription/{application}": {
+            "get": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "summary": "Afficher le formulaire de confirmation tout en listant les champs deja remplis dans fromualire de préinscription et les champs pour joindre les documents selon level (Licence/Mastere) mentionné dans l'appplication",
+                "operationId": "b3f338cb1e88ae3d13211eeec774392a",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "ID de l'application",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Formulaire chargé avec succès"
+                    },
+                    "403": {
+                        "description": "Déjà soumis ou non préconfirmé"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Confirmation"
+                ],
+                "summary": "Soumettre les documents de confirmation",
+                "operationId": "263d6d398ad4255a300f02b25fb8ea53",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "ID de l'application",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Fichiers requis selon le niveau",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "documents[1]": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "documents[2]": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Documents soumis avec succès"
+                    },
+                    "403": {
+                        "description": "Formulaire déjà soumis ou non autorisé"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/degrees": {
+            "get": {
+                "tags": [
+                    "Degrees"
+                ],
+                "summary": "List all degrees",
+                "operationId": "79d098a12a4303d67f4e9cd3e6adfa14",
+                "responses": {
+                    "200": {
+                        "description": "Degrees retrieved successfully"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Degrees"
+                ],
+                "summary": "Create a new degree",
+                "operationId": "9d962cbad9df1fe20ebd769f9ececba7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "level",
+                                    "translations"
+                                ],
+                                "properties": {
+                                    "level": {
+                                        "type": "string"
+                                    },
+                                    "translations": {
+                                        "properties": {
+                                            "fr": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "en": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ar": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Degree created successfully"
+                    }
+                }
+            }
+        },
+        "/api/degrees/{id}": {
+            "get": {
+                "tags": [
+                    "Degrees"
+                ],
+                "summary": "Get a degree by ID",
+                "operationId": "199bdca35978f6c8bb70e04d04a39b44",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Degree retrieved successfully"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Degrees"
+                ],
+                "summary": "Update a degree",
+                "description": "Update a degree by its ID",
+                "operationId": "updateDegree",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the degree to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "level"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Génie Logiciel"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "example": "Licence"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Degree updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Updated successfully"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Degree not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Degrees"
+                ],
+                "summary": "Delete a degree",
+                "operationId": "ed0cdd1e25b5b7d5f96444f163dd62a4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Degree deleted successfully"
+                    }
+                }
+            }
+        },
+        "/api/departments": {
+            "get": {
+                "tags": [
+                    "Departments"
+                ],
+                "summary": "List all departments",
+                "operationId": "b487f509f73f9ed8b0ce05ef1343c0ee",
+                "responses": {
+                    "200": {
+                        "description": "Departments retrieved successfully"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Departments"
+                ],
+                "summary": "Create a new department",
+                "operationId": "048604f54782d24e41257bfc7d405ce5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "cover_image": {
+                                        "type": "string",
+                                        "example": "departments/engineering.jpg"
+                                    },
+                                    "translations": {
+                                        "properties": {
+                                            "fr": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "en": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ar": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Department created successfully"
+                    }
+                }
+            }
+        },
+        "/api/departments/{id}": {
+            "get": {
+                "tags": [
+                    "Departments"
+                ],
+                "summary": "Get a department by ID",
+                "operationId": "77939ea8e3e5150d5164da207b31f150",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Department retrieved successfully"
+                    },
+                    "404": {
+                        "description": "Department not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Departments"
+                ],
+                "summary": "Update a department",
+                "operationId": "c8f699be6f10ea6520aeae524a75a152",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "cover_image": {
+                                        "type": "string",
+                                        "example": "departments/ai.jpg"
+                                    },
+                                    "translations": {
+                                        "properties": {
+                                            "fr": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "en": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ar": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Department updated successfully"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Departments"
+                ],
+                "summary": "Delete a department",
+                "operationId": "7108e829018fbb02676504d5cc52ff1b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Department deleted successfully"
+                    }
+                }
+            }
+        },
+        "/api/document-types": {
+            "get": {
+                "tags": [
+                    "DocumentTypes"
+                ],
+                "summary": "Lister les types de documents requis selon le niveau",
+                "operationId": "65f9c98397108e0b42864454976674fa",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "Filtrer par niveau (Licence ou Mastere)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Liste des documents requis"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "DocumentTypes"
+                ],
+                "summary": "Créer un type de document",
+                "operationId": "09efb311d226d52f6e8ed73fa49128e3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "level"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Licence",
+                                            "Mastere"
+                                        ]
+                                    },
+                                    "is_required": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Créé"
+                    }
+                }
+            }
+        },
+        "/api/document-types/{id}": {
+            "get": {
+                "tags": [
+                    "DocumentTypes"
+                ],
+                "summary": "Afficher un type de document",
+                "operationId": "1b618e5c51ece809d604e948fecb1f87",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Trouvé"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "DocumentTypes"
+                ],
+                "summary": "Mettre à jour un type de document",
+                "operationId": "49420aa42323f139818424643b6a24c5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Licence",
+                                            "Mastere"
+                                        ]
+                                    },
+                                    "is_required": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mis à jour"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DocumentTypes"
+                ],
+                "summary": "Supprimer un type de document",
+                "operationId": "48eb3111043d06f9d5ce656b5b8d8f8f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Supprimé"
+                    }
+                }
+            }
+        },
+        "/api/applications/{application}/documents": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Lister les documents envoyés pour une application",
+                "operationId": "46399b230cc2b19080b9627a529d7682",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/news": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "List all news (translated)",
+                "operationId": "61505043d79ae57c26a1fb2f141a2035",
+                "parameters": [
+                    {
+                        "name": "include_translations",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Create a news entry with translations",
+                "operationId": "2c114990cc13e340f7c09d03c1a7bf40",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created successfully"
+                    }
+                }
+            }
+        },
+        "/api/news/{id}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Get single news item by ID",
+                "operationId": "c3e202f2e52f36a6eb0e78bfa95083d1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Update news entry and translations",
+                "operationId": "7620fe0539ca663b340d2f54a97efe7a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated successfully"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Delete a news item",
+                "operationId": "f55dff03a02fec6a96165a61d58ebfbf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted successfully"
+                    }
+                }
+            }
+        },
+        "/api/formulaires/preinscription": {
+            "post": {
+                "tags": [
+                    "Preinscription"
+                ],
+                "summary": "Submit a preinscription",
+                "operationId": "61cb8fbff1435bca84470478c71ded3b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "first_name_ar",
+                                    "last_name_ar",
+                                    "email",
+                                    "cin"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Youssef"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Dhouib"
+                                    },
+                                    "first_name_ar": {
+                                        "type": "string",
+                                        "example": "يوسف"
+                                    },
+                                    "last_name_ar": {
+                                        "type": "string",
+                                        "example": "الذويب"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "youssef@example.com"
+                                    },
+                                    "cin": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "passport": {
+                                        "type": "string",
+                                        "example": "AB123456"
+                                    },
+                                    "birth_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2003-05-01"
+                                    },
+                                    "country": {
+                                        "type": "string",
+                                        "example": "Tunisia"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "enum": [
+                                            "male",
+                                            "female",
+                                            "other"
+                                        ],
+                                        "example": "male"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Sfax"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+21698765432"
+                                    },
+                                    "previous_degree": {
+                                        "type": "string",
+                                        "example": "Baccalauréat Scientifique"
+                                    },
+                                    "graduation_year": {
+                                        "type": "integer",
+                                        "example": 2022
+                                    },
+                                    "how_did_you_hear": {
+                                        "type": "string",
+                                        "example": "Facebook"
+                                    },
+                                    "desired_degree_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Preinscription enregistrée avec succès"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Erreur serveur"
+                    }
+                }
+            }
+        },
+        "/api/applications/{id}/validate": {
+            "post": {
+                "tags": [
+                    "Preinscription"
+                ],
+                "summary": "Validate an application and send confirmation email",
+                "operationId": "3677a8a73738257caa5e9c2bfc1d8b43",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de l'application à valider",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Préinscription validée et email envoyé"
+                    },
+                    "404": {
+                        "description": "Application non trouvée"
+                    },
+                    "500": {
+                        "description": "Erreur serveur"
+                    }
+                }
+            }
+        },
+        "/api/professors": {
+            "get": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "List all professors",
+                "operationId": "fd97c52f555187931df0534dda2d688e",
+                "responses": {
+                    "200": {
+                        "description": "List retrieved successfully"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "Create a new professor",
+                "operationId": "7a2d185458c37adbd0353ab421eeb62a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "department_id",
+                                    "translations"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "photo_url": {
+                                        "type": "string"
+                                    },
+                                    "cv_attached_file": {
+                                        "type": "string"
+                                    },
+                                    "department_id": {
+                                        "type": "integer"
+                                    },
+                                    "translations": {
+                                        "properties": {
+                                            "fr": {
+                                                "required": [
+                                                    "first_name",
+                                                    "last_name"
+                                                ],
+                                                "properties": {
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "speciality": {
+                                                        "type": "string"
+                                                    },
+                                                    "grade": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "en": {
+                                                "properties": {
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "speciality": {
+                                                        "type": "string"
+                                                    },
+                                                    "grade": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ar": {
+                                                "properties": {
+                                                    "first_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "speciality": {
+                                                        "type": "string"
+                                                    },
+                                                    "grade": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Professor created successfully"
+                    }
+                }
+            }
+        },
+        "/api/professors/{id}": {
+            "get": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "Get a professor by ID",
+                "operationId": "dcad8026df3c4269952b9da3b699d9a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Professor retrieved successfully"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "Update a professor",
+                "description": "Updates a professor by ID",
+                "operationId": "updateProfessor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Professor ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "speciality",
+                                    "grade"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Rami"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Ben Yedder"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "professor@InnoTech.tn"
+                                    },
+                                    "speciality": {
+                                        "type": "string",
+                                        "example": "AI & Data Science"
+                                    },
+                                    "grade": {
+                                        "type": "string",
+                                        "example": "Assistant"
+                                    },
+                                    "department_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Professor updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Updated successfully"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Professor not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "Delete a professor",
+                "operationId": "5172e5f8ee956a691c4ba5c1edaf7262",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Professor deleted successfully"
+                    }
+                }
+            }
+        },
+        "/api/departments/{id}/professors": {
+            "get": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "List all professors in a specific department",
+                "operationId": "b4299a76bd2f8eb3d4fc140e405ab642",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Professors retrieved successfully"
+                    }
+                }
+            }
+        },
+        "/api/professors/slug/{slug}": {
+            "get": {
+                "tags": [
+                    "Professors"
+                ],
+                "summary": "Get a professor by profile slug",
+                "operationId": "f15efd817f2f65d4760eead14523c171",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Slug of the professor",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Professor retrieved successfully"
+                    },
+                    "404": {
+                        "description": "Professor not found"
+                    }
+                }
+            }
+        },
+        "/api/programs": {
+            "get": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "List all programs",
+                "operationId": "458855478a9c867f9412b66334deee5d",
+                "responses": {
+                    "200": {
+                        "description": "Programs retrieved successfully"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "Create a new program",
+                "operationId": "createProgram",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "degree_id",
+                                    "name",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "degree_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Big Data et Analyse de Données"
+                                    },
+                                    "description": {
+                                        "properties": {
+                                            "fr": {
+                                                "type": "string",
+                                                "example": "Formation en Big Data et analyse avancée."
+                                            },
+                                            "en": {
+                                                "type": "string",
+                                                "example": "Training in Big Data and advanced analytics."
+                                            },
+                                            "ar": {
+                                                "type": "string",
+                                                "example": "تكوين في البيانات الضخمة والتحليل المتقدم"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "attached_file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Program created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 201
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Created successfully"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/api/programs/{id}": {
+            "get": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "Get a program by ID",
+                "operationId": "4d229969610bba6e187d5c1d3c4012f6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Program retrieved successfully"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "Update a program",
+                "description": "Update an existing program by ID",
+                "operationId": "updateProgram",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Program ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "description",
+                                    "degree_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Génie Logiciel"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Couvre le développement logiciel, IA, cloud..."
+                                    },
+                                    "degree_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Program updated successfully"
+                    },
+                    "404": {
+                        "description": "Program not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "Delete a program",
+                "operationId": "dfc66e9aa8500e3fc2ade110f34ec6d2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Program deleted successfully"
+                    }
+                }
+            }
+        },
+        "/programs/by-degree/{id}": {
+            "get": {
+                "tags": [
+                    "Programs"
+                ],
+                "summary": "Get programs by degree ID",
+                "description": "Returns list of programs for a specific degree",
+                "operationId": "getProgramsByDegreeId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the degree",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Retrieved successfully"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "requestBodies": {
+            "ProgramRequest": {
+                "description": "Request payload for creating/updating a program",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "required": [
+                                "degree_id",
+                                "name",
+                                "description"
+                            ],
+                            "properties": {
+                                "degree_id": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Program Title"
+                                },
+                                "description": {
+                                    "properties": {
+                                        "fr": {
+                                            "type": "string",
+                                            "example": "Texte FR"
+                                        },
+                                        "en": {
+                                            "type": "string",
+                                            "example": "Text EN"
+                                        },
+                                        "ar": {
+                                            "type": "string",
+                                            "example": "النص بالعربية"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "attached_file": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Degrees",
+            "description": "API Endpoints for managing degrees"
+        },
+        {
+            "name": "Departments",
+            "description": "API Endpoints for managing departments"
+        },
+        {
+            "name": "News",
+            "description": "Endpoints for managing news and translations"
+        },
+        {
+            "name": "Professors",
+            "description": "API Endpoints for managing professors"
+        },
+        {
+            "name": "Programs",
+            "description": "API Endpoints for managing programs"
+        },
+        {
+            "name": "Confirmation",
+            "description": "Confirmation"
+        },
+        {
+            "name": "DocumentTypes",
+            "description": "DocumentTypes"
+        },
+        {
+            "name": "Documents",
+            "description": "Documents"
+        },
+        {
+            "name": "Preinscription",
+            "description": "Preinscription"
+        }
+    ]
+}

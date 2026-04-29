@@ -1,0 +1,184 @@
+<!-- Loader Component -->
+<app-loader></app-loader>
+
+<div class="min-h-screen bg-white" [class.rtl]="getCurrentLanguage() === 'ar'" *ngIf="!isLoading()">
+
+  <!-- Article Content -->
+  <article *ngIf="news()" class="relative">
+
+    <!-- Hero Image Section -->
+    <section class="relative h-[70vh] min-h-[500px] overflow-hidden">
+      <img
+        [src]="getPhotoUrl(news()!.image_url!) || getDefaultImage(news()!.category)"
+        [alt]="news()!.title"
+        class="w-full h-full object-cover"
+      />
+
+      <!-- Enhanced Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+
+      <!-- Back Button -->
+      <button
+        (click)="goBack()"
+        class="absolute top-8 left-8 z-20 flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-2xl hover:bg-white/30 transition-all duration-300 font-semibold shadow-xl"
+      >
+        <i class="pi pi-arrow-left text-lg"></i>
+        <span>{{ 'NEWS.BACK_TO_NEWS' | translate }}</span>
+      </button>
+
+      <!-- Category Badge -->
+      <div class="absolute top-8 right-8 z-20">
+        <span
+          class="inline-flex items-center px-6 py-3 rounded-2xl text-sm font-bold text-white backdrop-blur-md shadow-xl"
+          [ngClass]="getCategoryBadgeClass(news()!.category)"
+        >
+          <i [class]="getCategoryPrimeIcon(news()!.category)" class="mr-2 text-lg"></i>
+          {{ getCategoryLabel(news()!.category) | translate }}
+        </span>
+      </div>
+
+      <!-- Centered Article Header -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="max-w-5xl mx-auto px-8 text-center">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            {{ news()!.title }}
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-4xl mx-auto">
+            {{ news()!.description }}
+          </p>
+
+          <!-- Meta Information -->
+          <div class="flex flex-wrap items-center justify-center gap-8 text-white/80">
+
+
+            <div class="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl" *ngIf="news()!.location && news()!.category === 'event'">
+              <i class="pi pi-map-marker text-lg"></i>
+              <span class="font-semibold">{{ news()!.location }}</span>
+            </div>
+
+            <div class="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl" *ngIf="news()!.event_date && news()!.category === 'event'">
+              <i class="pi pi-clock text-lg"></i>
+              <span class="font-semibold">{{ formatDate(news()!.event_date!) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="relative py-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Content -->
+<!--         <div class="prose prose-lg max-w-none">
+          <div class="text-gray-700 leading-relaxed text-lg bg-white rounded-3xl p-12 shadow-xl border border-gray-100" [innerHTML]="getFormattedContent()">
+          </div>
+        </div> -->
+        <!-- Content -->
+        <div class="pt-12 border-t border-gray-200">
+          <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-8 shadow-lg border border-gray-100">
+            <h3 class="text-2xl font-bold text-[var(--InnoTech-accent)] mb-6 flex items-center gap-3">
+              <i class="pi pi-file text-[var(--InnoTech-primary)]"></i>
+              {{ 'NEWS.ARTICLE_TITLE' | translate }}
+            </h3>
+            <div class="flex gap-4">
+              <p class="text-gray-700 leading-relaxed text-lg" [innerHTML]="getFormattedContent()"></p>
+            </div>
+          </div>
+        </div>
+        <!-- Share Section -->
+        <div class="mt-16 pt-12 border-t border-gray-200">
+          <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-8 shadow-lg border border-gray-100">
+            <h3 class="text-2xl font-bold text-[var(--InnoTech-accent)] mb-6 flex items-center gap-3">
+              <i class="pi pi-share-alt text-[var(--InnoTech-primary)]"></i>
+              {{ 'NEWS.SHARE_ARTICLE' | translate }}
+            </h3>
+            <div class="flex gap-4">
+              <button
+                (click)="shareOnSocial('facebook')"
+                class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <i class="pi pi-facebook text-lg"></i>
+                <span>Facebook</span>
+              </button>
+
+              <button
+                (click)="shareOnSocial('twitter')"
+                class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-2xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <i class="pi pi-twitter text-lg"></i>
+                <span>Twitter</span>
+              </button>
+
+              <button
+                (click)="shareOnSocial('linkedin')"
+                class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-2xl hover:from-blue-800 hover:to-blue-900 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <i class="pi pi-linkedin text-lg"></i>
+                <span>LinkedIn</span>
+              </button>
+
+              <button
+                (click)="copyLink()"
+                class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-2xl hover:from-gray-700 hover:to-gray-800 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <i class="pi pi-copy text-lg"></i>
+                <span>{{ 'NEWS.COPY_LINK' | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related News Section -->
+    <section class="relative py-15 bg-gradient-to-b from-gray-50 to-white" *ngIf="relatedNews().length > 0">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] rounded-2xl flex items-center justify-center shadow-lg">
+              <i class="pi pi-list text-white text-lg"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-[var(--InnoTech-accent)]">
+              {{ 'NEWS.RELATED_NEWS' | translate }}
+            </h2>
+          </div>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            {{ 'NEWS.RELATED_NEWS_DESCRIPTION' | translate }}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div *ngFor="let article of relatedNews()">
+            <app-news-card
+              [news]="article"
+              (cardClick)="navigateToNews($event)"
+            ></app-news-card>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <!-- Not Found State -->
+  <div *ngIf="!news() && !isLoading()" class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <div class="w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+        <i class="pi pi-exclamation-triangle text-gray-400 text-4xl"></i>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        {{ 'NEWS.NOT_FOUND_TITLE' | translate }}
+      </h2>
+      <p class="text-gray-600 mb-8 text-lg max-w-md mx-auto">
+        {{ 'NEWS.NOT_FOUND_MESSAGE' | translate }}
+      </p>
+      <button
+        (click)="goBack()"
+        class="px-8 py-4 bg-gradient-to-r from-[var(--InnoTech-primary)] to-[var(--InnoTech-secondary)] text-white rounded-2xl font-bold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3 mx-auto"
+      >
+        <i class="pi pi-arrow-left"></i>
+        <span>{{ 'NEWS.BACK_TO_NEWS' | translate }}</span>
+      </button>
+    </div>
+  </div>
+</div>

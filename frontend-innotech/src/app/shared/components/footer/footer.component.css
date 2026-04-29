@@ -1,0 +1,488 @@
+/* Footer Container */
+.footer-container {
+  background: linear-gradient(135deg, var(--InnoTech-accent) 0%, #003366 100%);
+  color: var(--InnoTech-white);
+  margin-top: auto;
+}
+
+/* Main Footer */
+.footer-main {
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Footer Sections */
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--InnoTech-white);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--InnoTech-secondary);
+  border-radius: 1px;
+}
+
+/* University Logo Section */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo-image {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo-text {
+  flex: 1;
+}
+
+.footer-university-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--InnoTech-white);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: var(--InnoTech-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Social Media */
+.social-links {
+  margin-top: 2rem;
+}
+
+.social-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--InnoTech-white);
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--InnoTech-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-icon:hover {
+  background: var(--InnoTech-secondary);
+  border-color: var(--InnoTech-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 196, 179, 0.3);
+}
+
+.social-icon i {
+  font-size: 1.2rem;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0;
+}
+
+.footer-link:hover {
+  color: var(--InnoTech-secondary);
+  transform: translateX(4px);
+}
+
+.footer-link-icon {
+  font-size: 0.9rem;
+  width: 16px;
+  opacity: 0.7;
+}
+
+/* Contact Information */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.contact-icon i {
+  font-size: 1.1rem;
+  color: var(--InnoTech-secondary);
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.contact-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--InnoTech-secondary);
+}
+
+/* Mini Map */
+.mini-map {
+  margin-top: 2rem;
+}
+
+.map-button {
+  width: 100%;
+  height: 120px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.map-button:hover {
+  border-color: var(--InnoTech-secondary);
+  background: rgba(0, 196, 179, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 196, 179, 0.2);
+}
+
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.5rem;
+}
+
+.map-icon {
+  font-size: 2rem;
+  color: var(--InnoTech-secondary);
+}
+
+.map-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--InnoTech-white);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom-left,
+.footer-bottom-center,
+.footer-bottom-right {
+  flex: 1;
+}
+
+.footer-bottom-center {
+  text-align: center;
+}
+
+.footer-bottom-right {
+  text-align: right;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-link:hover {
+  color: var(--InnoTech-secondary);
+}
+
+.footer-divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  color: var(--InnoTech-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.back-to-top:hover {
+  background: var(--InnoTech-secondary);
+  border-color: var(--InnoTech-secondary);
+  transform: translateY(-2px);
+}
+
+.back-to-top-text {
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-left,
+  .footer-bottom-center,
+  .footer-bottom-right {
+    text-align: center;
+  }
+
+  .footer-bottom-responsive {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-responsive > div {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-logo {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-logo-text {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .mini-map {
+    margin-top: 1.5rem;
+  }
+
+  .map-button {
+    height: 100px;
+  }
+
+  .footer-logo-mobile {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-logo-mobile > div {
+    text-align: center;
+  }
+
+  .social-icons-mobile {
+    justify-content: center;
+  }
+
+  .footer-links-mobile {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-links-mobile .footer-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-main {
+    padding: 2rem 0 1rem;
+  }
+
+  .footer-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    margin-bottom: 1rem;
+  }
+
+  .mini-map {
+    margin-top: 1.5rem;
+  }
+
+  .map-button {
+    height: 100px;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .footer-link:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .footer-section-title::after {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .footer-logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-bottom-right {
+  text-align: left;
+}
+
+[dir="rtl"] .footer-bottom-left {
+  text-align: right;
+}
+
+[dir="rtl"] .hover\:translate-x-1:hover {
+  transform: translateX(-0.25rem);
+}
+
+[dir="rtl"] .after\:left-0::after {
+  left: auto;
+  right: 0;
+}
+
+/* Custom backdrop blur for older browsers */
+.backdrop-blur-fallback {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--InnoTech-primary);
+  outline-offset: 2px;
+}
